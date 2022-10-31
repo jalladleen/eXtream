@@ -11,3 +11,5 @@ join as guests or through signed up accounts. Any guest or users with existing a
 could join the public chatting rooms with no restrictions. Public room could be visible
 through a sorting feature for the preferable genre of chatting room (i.e. Pop music, Jazz,
 etc.) that could be eventually joined.
+
+This project has been done by Leen Al-Jallad, Balaaj Arbab, Hala Elewa, Daniel Shobit Herbert, Samsara May Leung.
