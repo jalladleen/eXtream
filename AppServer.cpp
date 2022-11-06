@@ -39,7 +39,7 @@ void AppServer::CreateInitialRoutes()
 
         ReplaceFirstOccurence(content, "%NAME%", SessionManager::Instance().GetUser(incomingCookie));
 
-        string roomsHTML{};
+        string roomsHTML{ "" };
         ChatroomManager::Instance().ConstructGridElements(roomsHTML);
 
         ReplaceFirstOccurence(content, "%ROOMS%", roomsHTML);
@@ -65,7 +65,7 @@ void AppServer::CreateInitialRoutes()
 
     if (statusCode == 1)
     {
-        string content = ReadHTMLFile("webpages/accountCreated.html");
+        string content = ReadHTMLFile("webpages/accountcreated.html");
 
         res.set_content(content, "text/html");
 
@@ -128,7 +128,7 @@ void AppServer::CreateInitialRoutes()
     res.status = 301;    
     });
 
-    svr.Post("/CreateRoom", [&](const Request& req, Response& res) {
+    svr.Post("/CreateRoom", [&](const Request& req, Response& res) mutable {
 
     cout << "Creating Room\n";
     // PrintRequest(req);
@@ -148,7 +148,7 @@ void AppServer::CreateInitialRoutes()
 
     cout << "/Rooms/" + to_string(room->GetID()) << "\n";
 
-    this->svr.Post("/Rooms/" + to_string(room->GetID()), [roomID](const Request& reqp, Response& resp) {
+    this->svr.Get("/Rooms/" + to_string(room->GetID()), [roomID](const Request& reqp, Response& resp) {
 
         string cook = reqp.get_header_value("Cookie");
 
@@ -158,6 +158,7 @@ void AppServer::CreateInitialRoutes()
 
         resp.set_content("Welcome to room " + to_string(room->GetID()), "text/html");
 
+        resp.status = 200;
     });
 
     res.set_content("Welcome to room " + to_string(room->GetID()), "text/html");

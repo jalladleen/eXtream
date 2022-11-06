@@ -66,14 +66,14 @@ string ChatroomManager::ConstructGridElement(shared_ptr<Chatroom> room)
 
     gridElement += "<br>" + room->GetHostUsername() + "(HOST)";
 
-    cout << "HEREHEREHEREHERE";
+    auto usernames = room->GetUsernames();
 
-    for (string& str : *(room->GetUsernames()))
+    for (const string& str : *usernames)
     {
         gridElement += "<br>" + str;
     }
 
-    gridElement += "</div><div class=\"room-join\"><form method=\"POST\" action=\"/Rooms/";
+    gridElement += "</div><div class=\"room-join\"><form method=\"GET\" action=\"/Rooms/";
     gridElement += to_string(room->GetID());
     gridElement += "\"><button type=\"submit\">Join</button></form></div></div>";
 
