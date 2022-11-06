@@ -1,0 +1,79 @@
+        /* General page styling */
+        
+        html {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif');
+            background-size: cover;
+        }
+        
+        img {
+            padding-top: 250px;
+            position: relative;
+            height: 220px;
+            width: 320.1px;
+        }
+        
+        h1 {
+            font-family: 'Monoton', cursive;
+            font-size: 60px;
+            letter-spacing: 0.15em;
+        }
+        
+        h3 {
+            color: #00FFFF;
+            text-align: center;
+            font-family: 'VT323', monospace;
+            font-size: 50px;
+        }
+        
+        .container {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        
+        .button {
+            align-items: center;
+            align-content: center;
+            color: #00FFFF;
+            border: 6px solid #00FFFF;
+            width: 300px;
+            border-radius: 15px;
+            padding: 15px 25px;
+            font-size: 30px;
+            font-family: tahoma;
+            letter-spacing: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            filter: drop-shadow(0 0 15px #48D1CC) drop-shadow(0 0 50px #db3eb1) contrast(2) brightness(2);
+            display: inline;
+            transition: .5s;
+            text-transform: uppercase;
+        }
+        
+        a {
+            color: #00FFFF;
+        }
+        
+        a:hover {
+            color: black;
+        }
+        
+        .button:hover {
+            color: black;
+            background-color: #48D1CC;
+            filter: drop-shadow(0 0 20px #48D1CC) contrast(2) brightness(2);
+        }
+        
+        .button:nth-child(2) {
+            margin-left: 60px;
+        }
+        
+        #togglePassword {
+            color: white;
+            margin-left: -30px;
+            cursor: pointer;
+        }

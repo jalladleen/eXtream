@@ -1,0 +1,142 @@
+*, *::before, *::after 
+{
+    box-sizing: border-box;
+}
+
+body 
+{
+    margin: 0px;
+
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    color: white;
+}
+
+#vertical-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
+#horizontal-container
+{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+#left
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 10vw;
+    padding: 1vh 0;
+
+
+    background-color: fuchsia;
+}
+
+.left-button
+{
+    padding: 2vh 0;
+}
+
+.left-button button
+{
+    width: 6vw;
+    height: 4vh;
+
+    border-radius: 16px;
+}
+
+#center
+{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: chartreuse;
+}
+
+#center-text
+{
+    text-align: center;
+    padding: 2vh 0px;
+    width: 80vw;
+
+    background-color: blue;
+}
+
+#room-grid
+{
+    padding: 2vh 1vw 2vh 1vw;
+    display: grid;
+    grid-template-columns: 14vw 14vw 14vw 14vw 14vw;
+    grid-auto-rows: 14vw;
+    gap: 1vw;
+}
+
+.grid-element
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: darkblue;
+    padding: 5px;
+    border: 4px solid black;
+}
+
+.grid-element .room-join
+{
+    align-self: center;
+}
+
+.grid-element button
+{
+    
+    padding: 8px 16px;
+    border: 2px solid firebrick;
+    border-radius: 8px;
+    
+}
+
+button:hover
+{
+    filter: brightness(0.8);
+}
+
+#right
+{
+    width: 10vw;
+    padding: 1vh 0;
+    text-align: center;
+
+    background-color: crimson;
+}
+
+#Header,
+#Footer 
+{
+    flex-shrink: 0;
+    display: flex;
+    height: 14vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #4b1958;
+    font-size: 4vh;
+    
+}
+
+#Footer {
+    height: 6vh;
+}

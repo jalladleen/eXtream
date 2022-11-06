@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontpage</title>
+
+    <link rel="stylesheet" href="webpages/frontstyles.css">
+</head>
+<body>
+    <div id="vertical-container">
+        <div id="Header">
+            <div>eXtream</div>
+        </div>
+        <div id="horizontal-container">
+            <div id="left">
+                <div>Hello, %NAME%</div>
+                <div id="create-room-btn" class="left-button">
+                    <form action="/CreateRoom" method="POST">
+                        <button type="submit">Create Room</button>
+                    </form>
+                </div>
+                <div id="logout-btn" class="left-button">
+                    <form action="/Logout" method="POST">
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+            <div id="center">
+                <div id="center-text">Chatrooms</div>
+                <div id="room-grid">
+                    %ROOMS%
+                </div>
+            </div>
+            <div id="right">
+                <div>Friend's List</div>
+            </div>
+        </div>
+        <div id="Footer">
+            <div></div>
+        </div>
+    </div>
+    
+</body>
+</html>
