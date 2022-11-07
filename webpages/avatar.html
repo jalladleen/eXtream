@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="avatar.css">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=VT323&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+</style>
+
+<body>
+    <div class="header">
+        <center>
+            <h1>Hello eXtreamer!</h1>
+        </center>
+    </div>
+
+
+    <div class="user-profilesinglepage" id="avatar-header">
+        <div class="avatar-header">
+            <div class="avatar-wrapper">
+                <img class="profile-pic" src="" />
+                <div class="upload-button">
+                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </div>
+                <input class="file-upload" type="file" accept="image/*" />
+            </div>
+        </div>
+
+        <div class="wrap">
+            <button class="button">continue</button>
+        </div>
+
+    </div>
+
+    <script>
+        /***AVATAR SCRIPT***/
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var fileurl = e.target.result;
+                    $('.profile-pic').attr('src', fileurl);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(".file-upload").on('change', function() {
+            readURL(this);
+        });
+        $(".upload-button").on('click', function() {
+            $(".file-upload").click();
+        });
+        /***AVATAR SCRIPT***/
+    </script>
+</body>

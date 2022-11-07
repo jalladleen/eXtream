@@ -165,9 +165,9 @@ void AppServer::CreateInitialRoutes()
 
     ChatroomManager::Instance().PrintChatrooms();
 
-    // res.set_header("Location", "/Rooms/" + to_string(room->GetID()));
+    res.set_header("Location", "/Rooms/" + to_string(room->GetID()));
 
-    // res.status = 301;
+    res.status = 301;
     });
 
 }
