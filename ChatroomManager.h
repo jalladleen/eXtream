@@ -1,3 +1,11 @@
+//  ChatroomManager.h
+//  CS 3307 Group Project
+//
+//  Created by Balaaj Arbab on 2022-10-31.
+//  Date: 3rd November 2022
+//
+//  Manages Chatroom objects.
+
 #ifndef CHATROOM_MANAGER_H
 #define CHATROOM_MANAGER_H
 

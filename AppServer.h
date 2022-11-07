@@ -1,3 +1,11 @@
+//  AppServer.h
+//  CS 3307 Group Project
+//
+//  Created by Balaaj Arbab on 2022-10-31.
+//  Date: 3rd November 2022
+//
+//  Manages the http server component of the backend.
+
 #ifndef APP_SERVER_H
 #define APP_SERVER_H
 

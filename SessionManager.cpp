@@ -1,3 +1,11 @@
+//  SessionManager.cpp
+//  CS 3307 Group Project
+//
+//  Created by Balaaj Arbab on 2022-10-31.
+//  Date: 3rd November 2022
+//
+//  Manages logged in user sessions.
+
 #include "SessionManager.h"
 
 using namespace std;
