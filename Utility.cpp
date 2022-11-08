@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  Provides various helpful utility functions.
+//
 
 #include "Utility.h"
 

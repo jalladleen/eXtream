@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  An interface to login for a user.
+//
 
 #ifndef LOGIN_H
 #define LOGIN_H
@@ -14,11 +15,18 @@
 
 #include "LoginDB.hpp"
 
+/// @brief Logging in functionality.
 class Login
 {
 public:
+    /// @brief Singleton design pattern for Login.
+    /// @return A reference to the instance of Login.
     static const Login& Instance();
 
+    /// @brief Checks to see whether input credentials are valid and exist.
+    /// @param username Username of the user trying to log in.
+    /// @param pw Password of the user trying to log in.
+    /// @return 1 if successful, -1 if not.
     int TryLogin(std::string username, std::string pw) const;
 
 protected:

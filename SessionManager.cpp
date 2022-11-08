@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  Manages logged in user sessions.
+//
 
 #include "SessionManager.h"
 

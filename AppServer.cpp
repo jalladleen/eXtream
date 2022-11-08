@@ -5,6 +5,8 @@
 //  Date: 3rd November 2022
 //
 //  Manages the http server component of the backend.
+//
+
 
 #include "AppServer.h"
 
@@ -158,11 +160,19 @@ void AppServer::CreateInitialRoutes()
 
     this->svr.Get("/Rooms/" + to_string(room->GetID()), [roomID](const Request& reqp, Response& resp) {
 
+
         string cook = reqp.get_header_value("Cookie");
 
         auto room = ChatroomManager::Instance().GetChatroom(roomID);
-
-        room->AddUser(cook, SessionManager::Instance().GetUser(cook));
+        
+        if (cook == room->GetHostCookie())
+        {
+            // Host joined.
+        }
+        else
+        {
+            room->AddUser(cook, SessionManager::Instance().GetUser(cook)); 
+        }     
 
         resp.set_content("Welcome to room " + to_string(room->GetID()), "text/html");
 

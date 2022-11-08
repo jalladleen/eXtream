@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  Manages the http server component of the backend.
+//
 
 #ifndef APP_SERVER_H
 #define APP_SERVER_H
@@ -21,15 +22,21 @@
 #include "SessionManager.h"
 #include "ChatroomManager.h"
 
+/// @brief The HTTP webserver for the app.
 class AppServer
 {
 public:
+    /// @brief Initializes the app server.
     AppServer();
 
+    /// @brief Singleton design pattern for AppServer
+    /// @return A reference to the instance of AppServer
     static AppServer& Instance();
 
+    /// @brief Sets up http endpoints.
     void CreateInitialRoutes();
 
+    /// @brief Starts the webserver.
     void Run();
 
 private:

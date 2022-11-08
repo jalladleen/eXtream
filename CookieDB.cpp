@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  An interface to the cookie database table for the app.
+//
 
 #include "CookieDB.h"
 
@@ -121,6 +122,7 @@ string CookieDB::GetUsername(const string& cookie)
     return name;
 }
 
+
 bool CookieDB::CookieExists(const std::string& cookie)
 {
     string sqlQuery = "SELECT COUNT(*) as count FROM " + _tableName + " WHERE cookie='" + cookie + "';";
@@ -169,6 +171,26 @@ int CookieDB::DestroyCookieTable()
     return 1;
 }
 
+bool CookieDB::usernameExists(const std::string& username)
+{
+    string sqlQuery = "SELECT COUNT(*) as count FROM " + _tableName + " WHERE username='" + username + "';";
+
+    sqlite3_stmt* stmtObject;
+
+    if (SQLITE_OK != sqlite3_prepare_v2(_dbObject, sqlQuery.data(), sqlQuery.length() + 1, &stmtObject, nullptr))
+    {
+        throw "Unable to prepare SQL statement.";
+    }
+
+    sqlite3_step(stmtObject);
+
+    int count = sqlite3_column_int(stmtObject, 0);
+
+    sqlite3_finalize(stmtObject);
+
+    return count >= 1;
+}
+
 shared_ptr<vector<string>> CookieDB::ReadAll()
 {
     auto list = make_shared<vector<string>>();
@@ -203,26 +225,6 @@ shared_ptr<vector<string>> CookieDB::ReadAll()
     sqlite3_finalize(stmtObject);
 
     return list;
-}
-
-bool CookieDB::usernameExists(const std::string& username)
-{
-    string sqlQuery = "SELECT COUNT(*) as count FROM " + _tableName + " WHERE username='" + username + "';";
-
-    sqlite3_stmt* stmtObject;
-
-    if (SQLITE_OK != sqlite3_prepare_v2(_dbObject, sqlQuery.data(), sqlQuery.length() + 1, &stmtObject, nullptr))
-    {
-        throw "Unable to prepare SQL statement.";
-    }
-
-    sqlite3_step(stmtObject);
-
-    int count = sqlite3_column_int(stmtObject, 0);
-
-    sqlite3_finalize(stmtObject);
-
-    return count >= 1;
 }
 
 int CookieDB::tableSetup()

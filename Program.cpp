@@ -5,6 +5,7 @@
 //  Date: 3rd November 2022
 //
 //  Driver file.
+//
 
 #include <iostream>
 #include <memory.h>
@@ -22,11 +23,13 @@ using namespace httplib;
 
 const string BASE_DIR_PATH{"."};
 
+/// @brief Performs necessary clean-up upon interrupt.
+/// @param n 
 void SignalHandler(int n);
 
 int main(int argc, char** argv)
 {
-    cout << "Hello World!\n";
+    cout << "App running!\n";
     signal(SIGINT, SignalHandler);
 
     AppServer& svr = AppServer::Instance();
@@ -34,6 +37,8 @@ int main(int argc, char** argv)
     svr.CreateInitialRoutes();
 
     svr.Run();  
+
+    delete &SessionManager::Instance(); 
 
     return 0;
 }
