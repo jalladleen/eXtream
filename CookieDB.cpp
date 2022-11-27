@@ -11,7 +11,7 @@
 
 using namespace std;
 
-const char* DB_PATH{ "./database.db" };
+static const char* DB_PATH{ "./database.db" };
 
 CookieDB::CookieDB(const string& tableName)
     : _tableName{ tableName }

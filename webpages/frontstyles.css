@@ -38,6 +38,8 @@ body
     width: 10vw;
     padding: 1vh 0;
 
+    gap: 25px;
+
 
     background-color: fuchsia;
 }
@@ -139,4 +141,16 @@ button:hover
 
 #Footer {
     height: 6vh;
+}
+
+.prof-pic
+{
+    width: 64px;
+    height: 64px;
+}
+
+.img-file
+{
+    font-size: 14px;
+    width: 8vw;
 }

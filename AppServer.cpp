@@ -7,7 +7,6 @@
 //  Manages the http server component of the backend.
 //
 
-
 #include "AppServer.h"
 
 using namespace std;
@@ -15,6 +14,7 @@ using namespace httplib;
 
 static void PrintRequest(const Request& req);
 static void ReplaceFirstOccurence(string& s, string const& toReplace, string const& replaceWith);
+static vector<string> StringSplitInTwo(const string& str, const string& delimiter);
 
 AppServer* AppServer::s_instance{ nullptr };
 
@@ -47,7 +47,10 @@ void AppServer::CreateInitialRoutes()
     {
         content = ReadHTMLFile("webpages/front.html");
 
-        ReplaceFirstOccurence(content, "%NAME%", SessionManager::Instance().GetUser(incomingCookie));
+        string username = SessionManager::Instance().GetUser(incomingCookie);
+
+        ReplaceFirstOccurence(content, "%NAME%", username);
+        ReplaceFirstOccurence(content, "%PIC%", ProfilePictureManager::Instance().GetUserProfilePic(username));
 
         string roomsHTML{ "" };
         ChatroomManager::Instance().ConstructGridElements(roomsHTML);
@@ -188,6 +191,47 @@ void AppServer::CreateInitialRoutes()
     res.status = 301;
     });
 
+    svr.Post("/UploadImage", [](const Request& req, Response& res) {
+
+    string incomingCookie = req.get_header_value("Cookie");
+    string username = SessionManager::Instance().GetUser(incomingCookie);
+
+    bool hasFile = req.has_file("imagefile");
+    
+    if (hasFile)
+    {
+        size_t contentLength = stoi(req.get_header_value("Content-Length"));
+        const auto& file = req.get_file_value("imagefile");
+
+        vector<string> fileType = StringSplitInTwo(file.content_type, "/");
+
+        if (fileType[0] == "image")
+        {
+            string oldPic = ProfilePictureManager::Instance().GetUserProfilePic(username);
+
+            if (oldPic != "images/blank.webp")
+            {
+                system(("rm " + oldPic).c_str());
+            }
+
+            string path = "images/" + username + "." + fileType[1];
+
+            ofstream out(path, ios::binary);
+            out.write(file.content.c_str(), contentLength);
+            out.close();
+
+            ProfilePictureManager::Instance().UpdateProfilePic(username, path);
+
+            // cout << path << '\n';    
+
+        }
+    }
+
+    res.set_header("Location", "/");
+
+    res.status = 301;    
+    });
+
 }
 
 void AppServer::Run()
@@ -213,4 +257,15 @@ static void ReplaceFirstOccurence(string& s, string const& toReplace, string con
     if (pos == string::npos) return;
 
     s.replace(pos, toReplace.length(), replaceWith);
+}
+
+static vector<string> StringSplitInTwo(const string& str, const string& delimiter)
+{
+    int index = str.find(delimiter);
+    vector<string> list{ };
+
+    list.push_back(str.substr(0, index));
+    list.push_back(str.substr(index + 1, str.length()));
+
+    return list;
 }

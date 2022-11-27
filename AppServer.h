@@ -14,6 +14,8 @@
 #include <memory.h>
 #include <signal.h>
 #include <string>
+#include <fstream>
+#include <stdlib.h>
 
 #include "./httplib.h"
 #include "CreateAccount.h"
@@ -21,6 +23,7 @@
 #include "Utility.h"
 #include "SessionManager.h"
 #include "ChatroomManager.h"
+#include "ProfilePictureManager.h"
 
 /// @brief The HTTP webserver for the app.
 class AppServer

@@ -29,6 +29,11 @@ int CreateAccount::Create(string username, string password) const
 
     int statusCode = dbConnection.createAccount(username, password);
 
+    if (statusCode == 1)
+    {
+        ProfilePictureManager::Instance().AddNewUser(username);
+    }
+
     return statusCode;
 }
 

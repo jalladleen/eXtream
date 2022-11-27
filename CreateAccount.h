@@ -14,6 +14,7 @@
 #include <string>
 
 #include "LoginDB.hpp"
+#include "ProfilePictureManager.h"
 
 /// @brief Account creating functionality.
 class CreateAccount
