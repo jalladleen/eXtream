@@ -24,6 +24,7 @@
 #include "SessionManager.h"
 #include "ChatroomManager.h"
 #include "ProfilePictureManager.h"
+#include "SongManager.h"
 
 /// @brief The HTTP webserver for the app.
 class AppServer

@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/webpages/chat.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+    <script src="/webpages/chatscript.js" defer></script>
 </head>
 
 <body>
@@ -134,9 +139,13 @@
                         <div class="input-group">
                             <div class="input-group-append">
                                 <div class="upload-button">
-
-                                    <input style="cursor: pointer;" type="file" class="upload-button__input" />
+                                    <form method="POST" action="/UploadSong%UPLOADSONG%" enctype="multipart/form-data" target="dummyframe">
+                                        <button class="upload-button__icon" type="submit">^</button>
+                                        <input style="cursor: pointer; width:30px; height:30px; position:relative; left: 25px;" type="file" class="upload-button__input" name="songfile">
+                                    </form>
+                                                             
                                     <div class="upload-button__icon"><i class="fas fa-paperclip"></i></div>
+                                    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
                                 </div>
 
                                 <!-- <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span> -->
@@ -154,11 +163,11 @@
 
     <div id="Footer">
         <div id="SongInfo">
-            %SONG NAME% uploaded by %UPLOADER%
+            %SONGNAME% uploaded by %UPLOADER%
         </div>
         <div>
-            <audio controls autoplay>
-                <source src="songs/song1.mp3" type="audio/mp3">
+            <audio controls preload="auto">
+                <source src="/songs/%SONGFILE%" type="audio/mp3">
             </audio>
         </div>
     </div>

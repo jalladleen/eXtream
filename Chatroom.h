@@ -17,6 +17,7 @@
 #include <vector>
 #include <mutex>
 
+#include "Stopwatch.h"
 #include "ProfilePictureManager.h"
 
 /// @brief Represents a Chatroom that is a conduit between users.
@@ -69,10 +70,36 @@ public:
 
     void FormUserHTML(std::string& str);
 
+    std::string GetCurrentSongName() { return _currentSongName; }
+    std::string GetCurrentSongUploader() { return _currentSongUploader; }
+
+    void SetCurrentSongName(std::string newSong) { _currentSongName = newSong; }
+    void SetCurrentSongUploader(std::string newUploader) { _currentSongUploader = newUploader; }  
+
+    enum State
+    {
+        Paused,
+        Playing
+        
+    };
+
+    Chatroom::State GetState() { return _state; }
+    double GetSongTime() { return _songStartTime + _songTimer.TotalElapsed(); };
+
+    void Play(double startTime);
+    void Pause();
+    void Reset();
+
 private:
     int _roomID;
     std::string _hostCookie;
     std::string _hostUsername;
+
+    std::string _currentSongName { "default_song.mp3" };
+    std::string _currentSongUploader { "Server" };
+    Chatroom::State _state;
+    Stopwatch _songTimer{ };
+    double _songStartTime{ 0 };
     
     std::map<std::string, std::string> _connectedCookies;
 

@@ -184,13 +184,127 @@ void AppServer::CreateInitialRoutes()
         cout << "Room ID: " << roomID << '\n';
 
         ReplaceFirstOccurence(content, "%ROOM%", "Room " + to_string(roomID));
+        ReplaceFirstOccurence(content, "%UPLOADSONG%", to_string(roomID));
         ReplaceFirstOccurence(content, "%USERS%", users);
 
         string username = SessionManager::Instance().GetUser(cook);
         ReplaceFirstOccurence(content, "%SELF%", username);
         ReplaceFirstOccurence(content, "%SELFIMG%", "/" + ProfilePictureManager::Instance().GetUserProfilePic(username));
 
+        ReplaceFirstOccurence(content, "%SONGNAME%", room->GetCurrentSongName());
+        ReplaceFirstOccurence(content, "%UPLOADER%", room->GetCurrentSongUploader());
+        ReplaceFirstOccurence(content, "%SONGFILE%", room->GetCurrentSongName());
+
         resp.set_content(content, "text/html");
+
+        resp.status = 200;
+    });
+
+    this->svr.Get("/Rooms/" + to_string(room->GetID()) + "/UserList", [roomID](const Request& reqp, Response& resp) {
+
+        auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+        string users{ };
+
+        room->FormUserHTML(users);
+
+        resp.set_content(users, "text/plain");
+
+        resp.status = 200;
+    });
+
+    svr.Post("/UploadSong" + to_string(room->GetID()), [roomID](const Request& req, Response& res) {
+
+    auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+    if (room->GetState() == Chatroom::State::Playing) return;
+
+    string incomingCookie = req.get_header_value("Cookie");
+    string username = SessionManager::Instance().GetUser(incomingCookie);
+
+    bool hasFile = req.has_file("songfile");
+    
+    if (hasFile)
+    {
+        size_t contentLength = stoi(req.get_header_value("Content-Length"));
+        const auto& file = req.get_file_value("songfile");
+
+        vector<string> fileType = StringSplitInTwo(file.content_type, "/");
+
+        cout << fileType[0] << '\n';  
+        cout << fileType[1] << '\n';  
+        cout << contentLength << '\n';  
+
+        if (fileType[0] == "audio" && fileType[1] == "mpeg")
+        {
+            string path = "songs/" + file.filename;
+
+            ofstream out(path, ios::binary);
+            out.write(file.content.c_str(), contentLength);
+            out.close();
+
+            room->SetCurrentSongName(file.filename);
+            room->SetCurrentSongUploader(username);
+            room->Reset();
+            SongManager::Instance().AddSong(file.filename);
+
+            cout << path << '\n';    
+        }
+    }
+
+    });
+
+    this->svr.Get("/Rooms/" + to_string(room->GetID()) + "/SongInfo", [roomID](const Request& reqp, Response& resp) {
+
+        auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+        string responseJson{ "{\"SongName\" : \"" + room->GetCurrentSongName() + "\", \"SongUploader\" : \"" + room->GetCurrentSongUploader() + "\", \"State\" : \"" };
+
+        if (room->GetState() == Chatroom::State::Paused)
+        {
+            responseJson += "Paused\"";
+        }
+        else if (room->GetState() == Chatroom::State::Playing)
+        {
+            responseJson += "Playing\", ";
+            responseJson += "\"Time\" : " + to_string(room->GetSongTime());
+        }
+
+        responseJson += "}";
+
+        resp.set_content(responseJson, "application/json");
+
+        resp.status = 200;
+    });
+
+    this->svr.Post("/Rooms/" + to_string(room->GetID()) + "/SongControl", [roomID](const Request& reqp, Response& resp) {
+
+        auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+        const string& action = reqp.get_param_value("Action");
+        
+
+        cout << "Action: " << action << '\n';
+        
+
+        if (action == "Play")
+        {
+            double time = stod(reqp.get_param_value("Time"));
+
+            cout << "Time: " << time << '\n';
+
+            room->Play(time);
+        }
+        else if (action == "Pause")
+        {
+            room->Pause();
+        }
+        else if (action == "Reset")
+        {
+            room->Reset();
+        }
+
+        resp.set_content("", "text/plain");
 
         resp.status = 200;
     });

@@ -17,6 +17,7 @@
 #include "Utility.h"
 #include "SessionManager.h"
 #include "AppServer.h"
+#include "SongManager.h"
 
 using namespace std;
 using namespace httplib;
@@ -39,6 +40,7 @@ int main(int argc, char** argv)
     svr.Run();  
 
     delete &SessionManager::Instance(); 
+    delete &SongManager::Instance();
 
     return 0;
 }
@@ -47,6 +49,7 @@ int main(int argc, char** argv)
 void SignalHandler(int n)
 {
     delete &SessionManager::Instance(); 
+    delete &SongManager::Instance();
 
     cout << "Exiting\n";
 

@@ -90,6 +90,33 @@ void Chatroom::FormUserHTML(string& str)
 
 }
 
+void Chatroom::Play(double startTime)
+{
+    _state = Chatroom::State::Playing;
+
+    _songStartTime = startTime;
+    
+    _songTimer.Start();
+}
+
+void Chatroom::Pause()
+{
+    _state = Chatroom::State::Paused;
+
+    // _songTimer.Stop();
+    _songTimer.Reset();
+}
+
+void Chatroom::Reset()
+{
+    _state = Chatroom::State::Paused;
+
+    _songStartTime = 0;
+
+    _songTimer.Reset();
+}
+
+
 
 
 
