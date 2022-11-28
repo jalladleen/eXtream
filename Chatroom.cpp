@@ -55,9 +55,11 @@ bool Chatroom::RemoveUser(string cookie)
     return true;
 }
 
-shared_ptr<vector<string>> Chatroom::GetUsernames()
+shared_ptr<vector<string>> Chatroom::GetUsernames(bool includeHost)
 {
     auto list = make_shared<vector<string>>();
+
+    if (includeHost) list->push_back(_hostUsername);
 
     for (auto item : _connectedCookies)
     {
@@ -66,5 +68,28 @@ shared_ptr<vector<string>> Chatroom::GetUsernames()
 
     return list;
 }
+
+void Chatroom::FormUserHTML(string& str)
+{
+    auto users = GetUsernames(true);
+
+    for (auto user : *users)
+    {
+        str += "<li class='active'><a href='#'><div class='d-flex bd-highlight'><div class='img_cont'><img src='/";
+        str += ProfilePictureManager::Instance().GetUserProfilePic(user);
+        str += "' class='rounded-circle user_img border border-dark'><span class='online_icon'></span></div><div class='user_info'><span>";
+        str += user;
+
+        if (user == _hostUsername)
+        {
+            str += " (HOST)";
+        }
+
+        str += "</span><p>Online</p></div></div></a></li>";                                 
+    }
+
+}
+
+
 
 

@@ -163,7 +163,6 @@ void AppServer::CreateInitialRoutes()
 
     this->svr.Get("/Rooms/" + to_string(room->GetID()), [roomID](const Request& reqp, Response& resp) {
 
-
         string cook = reqp.get_header_value("Cookie");
 
         auto room = ChatroomManager::Instance().GetChatroom(roomID);
@@ -175,9 +174,23 @@ void AppServer::CreateInitialRoutes()
         else
         {
             room->AddUser(cook, SessionManager::Instance().GetUser(cook)); 
-        }     
+        }
 
-        resp.set_content("Welcome to room " + to_string(room->GetID()), "text/html");
+        string content = ReadHTMLFile("webpages/chatroom.html");
+        string users{ };
+
+        room->FormUserHTML(users);
+
+        cout << "Room ID: " << roomID << '\n';
+
+        ReplaceFirstOccurence(content, "%ROOM%", "Room " + to_string(roomID));
+        ReplaceFirstOccurence(content, "%USERS%", users);
+
+        string username = SessionManager::Instance().GetUser(cook);
+        ReplaceFirstOccurence(content, "%SELF%", username);
+        ReplaceFirstOccurence(content, "%SELFIMG%", "/" + ProfilePictureManager::Instance().GetUserProfilePic(username));
+
+        resp.set_content(content, "text/html");
 
         resp.status = 200;
     });

@@ -17,6 +17,8 @@
 #include <vector>
 #include <mutex>
 
+#include "ProfilePictureManager.h"
+
 /// @brief Represents a Chatroom that is a conduit between users.
 class Chatroom
 {
@@ -47,7 +49,7 @@ public:
 
     /// @brief A list of all currently joined user's usernames.
     /// @return vector<string> of usernames.
-    std::shared_ptr<std::vector<std::string>> GetUsernames();
+    std::shared_ptr<std::vector<std::string>> GetUsernames(bool includeHost = false);
 
     /// @brief Gets the room's id.
     /// @return Room id integer.
@@ -64,6 +66,8 @@ public:
     /// @brief Currently connected user count.
     /// @return User count integer.
     int GetUserCount() { return _connectedCookies.size() + 1; }
+
+    void FormUserHTML(std::string& str);
 
 private:
     int _roomID;
