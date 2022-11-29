@@ -41,7 +41,7 @@ body
     gap: 25px;
 
 
-    background-color: fuchsia;
+    background-color: rgb(67, 77, 87);
 }
 
 .left-button
@@ -64,7 +64,13 @@ body
     flex-direction: column;
     align-items: center;
 
-    background-color: chartreuse;
+    background-color: rgb(41, 47, 53);
+    /* background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); */
+    background-image: url('https://i.pinimg.com/originals/c6/c1/1d/c6c11d8ba0b9f26caf0a6a8ee3a3e78e.gif');
+    background-size: cover;
+    
+    /* background-image: url('listen.gif');
+    background-size: auto; */
 }
 
 #center-text
@@ -73,7 +79,8 @@ body
     padding: 2vh 0px;
     width: 80vw;
 
-    background-color: blue;
+    background-color: rgb(41, 47, 53);
+
 }
 
 #room-grid
@@ -91,7 +98,8 @@ body
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: darkblue;
+    background-color: rgb(67, 77, 87);
+    
     padding: 5px;
     border: 4px solid black;
 }
@@ -105,7 +113,7 @@ body
 {
     
     padding: 8px 16px;
-    border: 2px solid firebrick;
+    border: 2px solid black;
     border-radius: 8px;
     
 }
@@ -121,7 +129,7 @@ button:hover
     padding: 1vh 0;
     text-align: center;
 
-    background-color: crimson;
+    background-color: rgb(67, 77, 87);
 }
 
 #Header,
@@ -138,10 +146,16 @@ button:hover
     font-size: 4vh;
     background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
     
+    
+}
+#Header
+{
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
 }
 
 #Footer {
     height: 6vh;
+    
 }
 
 .prof-pic
@@ -154,4 +168,14 @@ button:hover
 {
     font-size: 14px;
     width: 8vw;
+}
+
+#upload-img-btn
+{
+    margin-top: 280px;
+}
+
+#create-room-btn button
+{
+    height: 70px;
 }

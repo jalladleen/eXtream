@@ -95,7 +95,7 @@ void AppServer::CreateInitialRoutes()
 
     svr.Post("/LoginAccount", [](const Request& req, Response& res) {
 
-    PrintRequest(req);
+    // PrintRequest(req);
 
     const string& username = req.get_param_value("username");
     const string& pw = req.get_param_value("password");
@@ -112,7 +112,9 @@ void AppServer::CreateInitialRoutes()
 
         SessionManager::Instance().AddSession(cookie, username);
 
-        SessionManager::Instance().PrintSessions();
+        // SessionManager::Instance().PrintSessions();
+
+        cout << username << " just logged in with cookie: " << cookie << '\n';
 
         res.set_header("Location", "/");
 
@@ -125,6 +127,24 @@ void AppServer::CreateInitialRoutes()
 
         res.status = 200;
     }
+
+    });
+
+    svr.Get("/LoginGuest", [](const Request& req, Response& res) {
+
+        string guestUsername = "Guest" + to_string(RandomInteger(0, 100000));
+
+        string cookie = SessionManager::Instance().NewDistinctCookie();
+
+        res.set_header("Set-Cookie", cookie);
+
+        SessionManager::Instance().AddSession(cookie, guestUsername);
+
+        cout << guestUsername << " just logged in with cookie: " << cookie << '\n';
+
+        res.set_header("Location", "/");
+
+        res.status = 301;
 
     });
 

@@ -47,6 +47,11 @@ string ProfilePictureManager::GetUserProfilePic(const string& username)
 {
     ImageDB imageDB{ PROFILEPICTURE_TABLE_NAME };
 
+    if (username.substr(0, 5) == "Guest")
+    {
+        return "images/blank.webp";
+    }
+
     return imageDB.GetUserProfilePic(username);
 }
 
