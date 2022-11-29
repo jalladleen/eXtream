@@ -179,3 +179,18 @@ button:hover
 {
     height: 70px;
 }
+
+.friends-header
+{
+    margin-bottom: 20px;
+}
+
+.friend
+{
+    margin-left: 20px;
+}
+
+#add-friends input
+{
+    width: 150px;
+}

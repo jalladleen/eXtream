@@ -129,7 +129,7 @@ bool CookieDB::CookieExists(const std::string& cookie)
 
     sqlite3_stmt* stmtObject;
 
-    cout << sqlQuery << "\n";
+    // cout << sqlQuery << "\n";
 
     if (SQLITE_OK != sqlite3_prepare_v2(_dbObject, sqlQuery.data(), sqlQuery.length() + 1, &stmtObject, nullptr))
     {
@@ -142,7 +142,7 @@ bool CookieDB::CookieExists(const std::string& cookie)
     string countStr = (const char *)sqlite3_column_text(stmtObject, 0);
     int count = stoi(countStr);
 
-    cout << "Count: " << count << '\n';
+    // cout << "Count: " << count << '\n';
 
     sqlite3_finalize(stmtObject);
 

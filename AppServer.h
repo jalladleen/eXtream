@@ -25,6 +25,7 @@
 #include "ChatroomManager.h"
 #include "ProfilePictureManager.h"
 #include "SongManager.h"
+#include "FriendManager.h"
 
 /// @brief The HTTP webserver for the app.
 class AppServer

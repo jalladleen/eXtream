@@ -56,6 +56,11 @@ void AppServer::CreateInitialRoutes()
         ChatroomManager::Instance().ConstructGridElements(roomsHTML);
 
         ReplaceFirstOccurence(content, "%ROOMS%", roomsHTML);
+
+        string friendsHTML { "" };
+        FriendManager::Instance().GetHTMLRepresentation(username, friendsHTML);
+
+        ReplaceFirstOccurence(content, "%FRIENDS%", friendsHTML);
     }
     else
     {
@@ -90,6 +95,17 @@ void AppServer::CreateInitialRoutes()
 
         res.status = 200;
     }
+
+    });
+
+    svr.Post("/AddFriend", [](const Request& req, Response& res) {
+
+    const string& friendUsername = req.get_param_value("friendusername");
+    string incomingCookie = req.get_header_value("Cookie");
+
+    const int statusCode = FriendManager::Instance().AddFriend(SessionManager::Instance().GetUser(incomingCookie), friendUsername);
+
+    res.set_redirect("/");
 
     });
 

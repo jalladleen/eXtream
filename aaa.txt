@@ -1,29 +1,29 @@
-/**
- *@author Daniel Herbert
- *
- *This class represents the database that will store all user information in our project
- */
+//
+//  LoginDB.cpp
+//  CS 3307 Group Project
+//
+//  Created by Daniel Herbert on 2022-10-31.
+//
 
 #include "LoginDB.hpp"
+#include <sqlite3.h>
+#include <iostream>
+#include <string>
+#include <string.h>
+#include <vector>
+
 using namespace std;
-/** Constructor for the LoginDB class
- *Table name is passed to the constructor
- *Constructor opens a database connection and creates a
- *table that will store all user login info
- */
-LoginDB::LoginDB(string tableName)
+
+LoginDB::LoginDB(const string& tableName)
+: _tableName{ tableName }
 {
-    _tableName = tableName;
-    numUsers = 0;
     char *zErrMsg = 0;
     int open;
     int rc;
-    //Query to create table
     string query = "create table if not exists " + _tableName + " (username varchar(255), password varchar(255), u_id int);";
     
     const char *sql = query.c_str();
     
-    //Opening database connection
     open = sqlite3_open("database.db", &db);
     
     if (open) {
@@ -33,7 +33,6 @@ LoginDB::LoginDB(string tableName)
         printf("Database opened succesfully\n");
     }
     
-    //Creating table to store user information
     rc = sqlite3_exec(db, sql, NULL, 0, &zErrMsg);
     
     if (rc != SQLITE_OK) {
@@ -41,29 +40,27 @@ LoginDB::LoginDB(string tableName)
     } else {
         cout << "Table created successfully\n";
     }
-    
 }
 
-//Destructor
 LoginDB::~LoginDB()
 {
     sqlite3_close(db);
     cout << "Database successfully closed.\n";
 }
 
-//Method to verify login credentials for user
 int LoginDB::verifyLogin(string username, string password) {
     vector<string> gettingUserList = getUserDatabase();
     string delimiter = "|";
     for (int i = 0; i < gettingUserList.size(); i++) {
         string temp = gettingUserList.at(i);
         string token = temp.substr(0, temp.find(delimiter));
+        //printf("Token: %s\n", token.c_str());
         if (token == username) {
             temp.erase(0, temp.find(delimiter) + delimiter.length());
             string pw = temp.substr(0, temp.find(delimiter));
-            if (pw == encrypt(password)) {
+            if (pw == password) {
                 printf("Login Credentials Provided are correct!\n");
-                return 1;           
+                return 1;
             }
         }
     }
@@ -71,11 +68,8 @@ int LoginDB::verifyLogin(string username, string password) {
     return 0;
 }
 
-//Method to change user's password
 int LoginDB::changePassword(string username, string np) {
-    //Query to update password
-    string newPW = encrypt(np);
-    string query = "update " + _tableName + " set password = \'" + newPW + "\'" +  " where username = \'" + username + "\'";
+    string query = "update " + _tableName + " set password = \'" + np + "\'" +  " where username = \'" + username + "\'";
     char *zErrMsg = 0;
     int rc;
     const char *sql = query.c_str();
@@ -85,26 +79,36 @@ int LoginDB::changePassword(string username, string np) {
     } else {
         cout << "Password updated successfully\n";
     }
+    //printf("%s\n", query.c_str());
+    
+    /*vector<string> gettingUserList = getUserDatabase();
+    string delimiter = "|";
+    for (int i = 0; i < gettingUserList.size(); i++) {
+        string temp = gettingUserList.at(i);
+        string token = temp.substr(0, temp.find(delimiter));
+        //printf("Token: %s\n", token.c_str());
+        if (token == username) {
+            
+            return 1;
+        }
+    }*/
     return 1;
 }
 
-//Method for user to create account and get added to Database table
-int LoginDB::createAccount(string u, string p)
+int LoginDB::createAccount(string u, string p) 
 {
-    //Checking if username already exists
+
     if (checkUsername(u) == 1)
     {
         cout << "Username already exists.\n";
-        
+
         return 0;
     }
 
     int rc;
-    numUsers++;
-    string uniqueID = to_string(numUsers);
-    string encryptPW = encrypt(p);
-    //Query to insert new user account info in database table
-    string query = "insert into " + _tableName + " values (\""+ u +  "\" , \"" + encryptPW + "\" , \"" + uniqueID + "\");";
+    int random = rand()%1000 + 1;
+    string str = to_string(random);
+    string query = "insert into " + _tableName + " values (\""+ u +  "\" , \"" + p + "\" , \"" + str + "\");";
     const char *sql = query.c_str();
     printf("%s\n", sql);
     char *zErrMsg = 0;
@@ -118,25 +122,29 @@ int LoginDB::createAccount(string u, string p)
     return 1;
 }
 
-//Method to check if username already exists from the database
 int LoginDB::checkUsername(string username) {
     vector<string> gettingUserList = getUserDatabase();
     string delimiter = "|";
     for (int i = 0; i < gettingUserList.size(); i++) {
         string temp = gettingUserList.at(i);
         string token = temp.substr(0, temp.find(delimiter));
+        //printf("Token: %s\n", token.c_str());
         if (token == username) {
+            printf("This username already exists\n");
             return 1;
         }
     }
     return 0;
 }
 
-//Method to get all user information from database and stores it in a vector
+int LoginDB::checkPW(string ePw) {
+    return 1;
+}
+
 vector <string> LoginDB::getUserDatabase() {
     //Creating an empty vector
     vector <string> userLog;
-    //SQL statement to retrieve all user information
+    //SQL statement to retrieve messages for the app
     string query = "select * from " + _tableName;
     string row;
     sqlite3_stmt* stmt;
@@ -147,7 +155,7 @@ vector <string> LoginDB::getUserDatabase() {
         cout << "Error preparing statement records\n";
     }
     int r = sqlite3_step(stmt);
-    //While loop to iterate through each row and column in the Database table
+    //While loop that inserts messages into vector as long as there are still messages
     while (r == SQLITE_ROW) {
         string messageCol1 = string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0)));
         string messageCol2 = string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1)));
@@ -158,55 +166,5 @@ vector <string> LoginDB::getUserDatabase() {
     }
     sqlite3_finalize(stmt);
     return userLog;
-}
-
-
-
-//Method to encrypt user passwords
-string LoginDB::encrypt(string pw) {
-    string epw = "";
-    string epwchar;
-    int ascii;
-    int tempascii;
-    //Using ascii values to shift and encrypt
-    for (int i = 0; i < pw.length(); i++) {
-        ascii = pw[i];
-        if (ascii >= 33 && ascii <= 64) {
-            tempascii = ascii + 3;
-        }
-        if (ascii >= 65 && ascii <= 96) {
-            tempascii = ascii + 3;
-        }
-        if (ascii >= 97 && ascii <= 122) {
-            tempascii = ascii + 5;
-        }
-        epwchar = char(tempascii);
-        epw.append(epwchar);
-    }
-    return epw;
-}
-
-//Method to decrypt user passwords when verifying login credentials
-string LoginDB::decrypt(string epw) {
-    string pw = "";
-    string pwchar;
-    int ascii;
-    int tempascii;
-    //Decrypting password from database
-    for (int i = 0; i < epw.length(); i++) {
-        ascii = epw[i];
-        if (ascii >= 36 && ascii <= 67) {
-            tempascii = ascii - 3;
-        }
-        if (ascii >= 68 && ascii <= 99) {
-            tempascii = ascii - 3;
-        }
-        if (ascii >= 102 && ascii <= 127) {
-            tempascii = ascii - 5;
-        }
-        pwchar = char(tempascii);
-        pw.append(pwchar);
-    }
-    return pw;
 }
 

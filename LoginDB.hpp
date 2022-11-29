@@ -1,63 +1,110 @@
-//
-//  LoginDB.hpp
-//  CS 3307 Group Project
-//
-//  Created by Daniel Herbert on 2022-10-31.
-//
+/**
+ * @author Daniel Herbert
+ *
+ * This class represents the database that will store all user information
+ */
+
 
 #ifndef LOGINDB_H
 #define LOGINDB_H
 
 #include <stdio.h>
-
 #include <sqlite3.h>
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <vector>
 
-/// @brief Provides access to the User Credentials Table for the app.
-class LoginDB {   
-public:
-    /// @brief Initializes the object and acquires a database handle.
-    /// @param tableName Table name of the credentials data table.
-    LoginDB(const std::string& tableName);
+/**
+ * @brief The LoginDB class
+ * @author Daniel Herbert
+ *
+ * This class will connect to an sqlite database and store all user information in the database, as well as the friends a user has added
+ * It implements the functions for verifying a user's login credentials, changing a user's password, creating an account, checking if a username already exists, as well as allowing a user to add a friend and subsequently updating that in the database.
+ */
 
-    /// @brief Safely closes the Database handle and cleans up.
+class LoginDB {
+public:
+    /**
+     * Constructor that creates a sqlite database and two tables: one to store user login credentials and the other to track the friends a user has added
+     *
+     * @param The name of the user login table
+     */
+    LoginDB(std::string tableName);
+    
+    /**
+     * Destructor to close database connection
+     */
     ~LoginDB();
     
-    /// @brief Checks to see whether input credentials are valid and exist.
-    /// @param username Username of the user trying to log in.
-    /// @param pw Password of the user trying to log in.
-    /// @return 1 if successful, -1 if not.
+    /**
+     * Verifies a user's login credentials
+     *
+     * @param username The username passed to login
+     * @param password The password passed to login
+     *
+     * @return int Returns 1 if the user credentials entered are correct, 0 otherwise
+     */
     int verifyLogin(std::string username, std::string password);
     
-    /// @brief NOT IMPLEMENTED
-    /// @param username 
-    /// @param np 
-    /// @return 
+    /**
+     * Changes a user's password
+     *
+     * @param username The user's username that wants their password changed
+     * @param newpw The new password the user would like to change their password to
+     *
+     *  @return int Returns 1 if the password was successfully changed and updated in the database, 0 otherwise
+     */
     int changePassword(std::string username, std::string np);
     
-    /// @brief Inserts a new user into the database.
-    /// @param u Username of the new user.
-    /// @param p Password of the new user.
-    /// @return 1 if successful, -1 if not.
+    /**
+     * Creates an account and stores user credentials in the database
+     *
+     * @param u The username of the new user
+     * @param p The password the new user would like to use
+     *
+     * @return int Returns 1 if the account was successfully created, 0 otherwise
+     */
     int createAccount(std::string u, std::string p);
     
-    /// @brief Checks whether if a given username already exists.
-    /// @param username Username string to check.
-    /// @return 1 if true, -1 if not.
+    /**
+     * Checks if a username already exists in the database
+     *
+     * @param username The username a user would like to sign up with
+     *
+     * @return int
+     */
     int checkUsername(std::string username);
     
-    int checkPW(std::string ePw);
-    
-    /// @brief Load DB into memory.
-    /// @return Vector of string representation of rows.
+    /**
+     * Getting user credentials for all users in the database
+     *
+     * @return vector<std::string> Vector containing all stored information for each user in the database
+     */
     std::vector<std::string> getUserDatabase();
     
-
+    /**
+     * Encrypts the password a user would like to use
+     *
+     * @param pw Users password
+     *
+     * @return std::string Encrypted password
+     */
+    std::string encrypt(std::string pw);
+    
+    /**
+     * Decrypts an encrypted password
+     *
+     * @param epw An encrypted password
+     *
+     * @return std::string The decrypted password
+     */
+    std::string decrypt(std::string epw);
+    
 private:
     sqlite3* db;
-    const std::string _tableName;
+    std::string _tableName;
+    int numUsers;
 
 };
 
