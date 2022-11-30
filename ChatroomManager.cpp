@@ -59,6 +59,8 @@ const string& ChatroomManager::ConstructGridElements(string& str)
     {
         auto room = item.second;
 
+        if (!room->IsVisible()) continue;
+
         str += ConstructGridElement(room);
     }
 

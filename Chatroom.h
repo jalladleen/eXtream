@@ -90,6 +90,9 @@ public:
     void Pause();
     void Reset();
 
+    void ToggleVisibility() { _visible = !_visible; }
+    bool IsVisible() { return _visible; }
+
 private:
     int _roomID;
     std::string _hostCookie;
@@ -100,6 +103,8 @@ private:
     Chatroom::State _state;
     Stopwatch _songTimer{ };
     double _songStartTime{ 0 };
+
+    bool _visible{ true };
     
     std::map<std::string, std::string> _connectedCookies;
 

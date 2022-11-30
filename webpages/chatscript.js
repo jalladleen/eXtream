@@ -10,6 +10,17 @@ let currentSong = "default_song.mp3";
 let songInfo = document.querySelector("#SongInfo");
 let audio = document.querySelector("audio");
 
+let visibilityButton = document.querySelector("#Visibility button");
+let visibility = "public";
+
+let usernames = document.querySelectorAll(".user_info span");
+
+let selfName = usernames[usernames.length - 1].innerHTML;
+let hostUsername = usernames[0].innerHTML;
+hostUsername = hostUsername.split(" ")[0];
+
+if (selfName !== hostUsername) visibilityButton.remove();
+
 function GetUsers()
 {
     $.ajax({
@@ -101,9 +112,34 @@ function SendSongControlEnd()
       });
 }
 
+function VisiblityToggle()
+{
+    $.ajax({
+        type: "POST",
+        url: url + "/Visibility",
+        data: '',
+        success: function (result) {
+        },
+        dataType: "text"
+      });
+
+      if (visibility == "public") 
+      {
+        visibility = "private";
+        visibilityButton.innerHTML = "Make Public";
+      }
+      else 
+      {
+        visibility = "public";
+        visibilityButton.innerHTML = "Make Private";
+      }
+}
+
 audio.addEventListener("play", SendSongControlPlay);
 audio.addEventListener("pause", SendSongControlPause);
 audio.addEventListener("ended", SendSongControlEnd);
+
+visibilityButton.addEventListener("click", VisiblityToggle);
 
 setInterval(GetUsers, 15000);
 

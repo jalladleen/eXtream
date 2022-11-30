@@ -345,6 +345,26 @@ void AppServer::CreateInitialRoutes()
         resp.status = 200;
     });
 
+    this->svr.Post("/Rooms/" + to_string(room->GetID()) + "/Visibility", [roomID](const Request& reqp, Response& resp) {
+
+        auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+        room->ToggleVisibility();
+
+        resp.set_content("", "text/plain");
+
+        resp.status = 200;
+    });
+
+    // this->svr.Post("/Rooms/" + to_string(room->GetID()) + "/Host", [roomID](const Request& reqp, Response& resp) {
+
+    //     auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+    //     resp.set_content(room->GetHostUsername(), "text/plain");
+
+    //     resp.status = 200;
+    // });
+
     res.set_content("Welcome to room " + to_string(room->GetID()), "text/html");
 
     ChatroomManager::Instance().PrintChatrooms();

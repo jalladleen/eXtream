@@ -357,7 +357,9 @@ audio
 
 #Header
 {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+
     font-size: 20px;
     color: white;
     height: 5%
@@ -366,4 +368,14 @@ audio
 .user_info span
 {
     margin-left: 0px;
+}
+
+#Visibility button
+{
+    background-color: #78e08f;
+}
+
+#Visibility button:hover
+{
+    filter: brightness(0.8);
 }
