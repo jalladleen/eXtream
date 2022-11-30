@@ -1,10 +1,9 @@
 //  ImageDB.cpp
 //  CS 3307 Group Project
 //
-//  Created by Balaaj Arbab on 2022-10-31.
-//  Date: 3rd November 2022
+//  Created by Balaaj Arbab on 2022-11-25.
 //
-//  An interface to the cookie database table for the app.
+//  An interface to the image database table for the app.
 //
 
 #include "ImageDB.h"

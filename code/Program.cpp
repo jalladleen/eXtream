@@ -2,7 +2,6 @@
 //  CS 3307 Group Project
 //
 //  Created by Balaaj Arbab on 2022-10-31.
-//  Date: 3rd November 2022
 //
 //  Driver file.
 //
@@ -28,6 +27,8 @@ const string BASE_DIR_PATH{"."};
 /// @param n 
 void SignalHandler(int n);
 
+/// @brief Entry point
+/// @return status code
 int main(int argc, char** argv)
 {
     cout << "App running!\n";

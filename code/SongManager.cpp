@@ -1,4 +1,10 @@
-
+//  SongManager.cpp
+//  CS 3307 Group Project
+//
+//  Created by Balaaj Arbab on 2022-11-25.
+//
+//  Manages Song uploads for the app.
+//
 
 #include "SongManager.h"
 

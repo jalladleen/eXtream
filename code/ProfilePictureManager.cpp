@@ -1,10 +1,9 @@
-//  SessionManager.cpp
+//  ProfilePictureManager.cpp
 //  CS 3307 Group Project
 //
-//  Created by Balaaj Arbab on 2022-10-31.
-//  Date: 3rd November 2022
+//  Created by Balaaj Arbab on 2022-11-25.
 //
-//  Manages logged in user sessions.
+//  Manages Profile Picture access for users.
 //
 
 #include "ProfilePictureManager.h"

@@ -2,6 +2,9 @@
 // This is a Header only class.
 //
 // Written by Balaaj Arbab.
+// Date: June 17th, 2022
+// https://github.com/BalaajArbab/Stopwatch
+// 
 
 #ifndef STOPWATCH_H
 #define STOPWATCH_H
@@ -10,35 +13,39 @@
 #include <vector>
 #include <cstdint>
 
+/// @brief A class to mimic Stopwatch functionality from System.Diagnostics in C#/.NET.
+/// Used in the keeping of song time in chatrooms.
+/// https://github.com/BalaajArbab/Stopwatch
+/// @author Balaaj Arbab
 class Stopwatch
 {
 public:
 
-    // Initializes Stopwatch instance.
+    /// @brief Initializes Stopwatch instance.
     Stopwatch();
 
-    // Queries whether the stopwatch is currently running (.Start was called).
+    /// @brief Queries whether the stopwatch is currently running (.Start was called).
     bool IsRunning();
 
-    // Initiates an interval of the stopwatch
+    /// @brief Initiates an interval of the stopwatch
     bool Start();
 
-    // Stops the stopwatch, creating a closed interval from the start point.
+    /// @brief Stops the stopwatch, creating a closed interval from the start point.
     bool Stop();
 
-    // Returns elapsed time (in seconds) of currently running interval (After starting the stopwatch, without stopping it.)
+    /// @brief Returns elapsed time (in seconds) of currently running interval (After starting the stopwatch, without stopping it.)
     double Elapsed();
 
-    // Returns elapsed time (in seconds) of previous completed interval.
+    /// @brief Returns elapsed time (in seconds) of previous completed interval.
     double LastElapsed();
 
-    // Returns the elapsed time (in seconds) of the specified interval (index of intervals starts at 0).
+    /// @brief Returns the elapsed time (in seconds) of the specified interval (index of intervals starts at 0).
     double GetIntervalElapsed(std::int32_t intervalIndex);
 
-    // Returns elapsed time (in seconds) of all intervals + the currently running interval if stopwatch is running.
+    /// @brief Returns elapsed time (in seconds) of all intervals + the currently running interval if stopwatch is running.
     double TotalElapsed();
 
-    // Erases all intervals.
+    /// @brief Erases all intervals.
     void Reset();
 
 private:

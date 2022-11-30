@@ -2,7 +2,6 @@
 //  CS 3307 Group Project
 //
 //  Created by Balaaj Arbab on 2022-10-31.
-//  Date: 3rd November 2022
 //
 //  Manages the http server component of the backend.
 //
@@ -12,8 +11,25 @@
 using namespace std;
 using namespace httplib;
 
+/// @brief Helper method to print an incoming request to the console.
+/// Helper method to print an incoming request to the console.
+/// @param req 
+/// @author Balaaj Arbab
 static void PrintRequest(const Request& req);
+
+/// @brief Replaces the first occurence of a placeholder substring in a string, to an input string.
+/// Replaces the first occurence of a placeholder substring in a string, to an input string.
+/// @param s String to search for substring in.
+/// @param toReplace Substring to replace.
+/// @param replaceWith String to replace Substring with.
+/// @author Balaaj Arbab
 static void ReplaceFirstOccurence(string& s, string const& toReplace, string const& replaceWith);
+
+/// @brief Splits an input string in 2 about the input delimiter.
+/// @param str Input string.
+/// @param delimiter Input delimiter.
+/// @return A list of the 2 strings about the delimiter.
+/// @author Balaaj Arbab
 static vector<string> StringSplitInTwo(const string& str, const string& delimiter);
 
 AppServer* AppServer::s_instance{ nullptr };
@@ -72,9 +88,8 @@ void AppServer::CreateInitialRoutes()
     res.status = 200;
     });
 
+    // Create account 
     svr.Post("/CreateAccount", [](const Request& req, Response& res) {
-
-    // PrintRequest(req);
 
     const string& username = req.get_param_value("username");
     const string& pw = req.get_param_value("password");
@@ -98,17 +113,7 @@ void AppServer::CreateInitialRoutes()
 
     });
 
-    svr.Post("/AddFriend", [](const Request& req, Response& res) {
-
-    const string& friendUsername = req.get_param_value("friendusername");
-    string incomingCookie = req.get_header_value("Cookie");
-
-    const int statusCode = FriendManager::Instance().AddFriend(SessionManager::Instance().GetUser(incomingCookie), friendUsername);
-
-    res.set_redirect("/");
-
-    });
-
+    // Login a user
     svr.Post("/LoginAccount", [](const Request& req, Response& res) {
 
     // PrintRequest(req);
@@ -146,6 +151,7 @@ void AppServer::CreateInitialRoutes()
 
     });
 
+    // Allow a guest to be logged in and access the frontpage.
     svr.Get("/LoginGuest", [](const Request& req, Response& res) {
 
         string guestUsername = "Guest" + to_string(RandomInteger(0, 100000));
@@ -164,6 +170,7 @@ void AppServer::CreateInitialRoutes()
 
     });
 
+    // Allow a user to logout.
     svr.Post("/Logout", [](const Request& req, Response& res) {
 
     string incomingCookie = req.get_header_value("Cookie");
@@ -177,6 +184,19 @@ void AppServer::CreateInitialRoutes()
     res.status = 301;    
     });
 
+    // Add friends to user
+    svr.Post("/AddFriend", [](const Request& req, Response& res) {
+
+    const string& friendUsername = req.get_param_value("friendusername");
+    string incomingCookie = req.get_header_value("Cookie");
+
+    const int statusCode = FriendManager::Instance().AddFriend(SessionManager::Instance().GetUser(incomingCookie), friendUsername);
+
+    res.set_redirect("/");
+
+    });
+
+    // Create a room and all necessary endpoints for that room.
     svr.Post("/CreateRoom", [&](const Request& req, Response& res) mutable {
 
     cout << "Creating Room\n";
@@ -249,6 +269,7 @@ void AppServer::CreateInitialRoutes()
         resp.status = 200;
     });
 
+    // Allow a song to be uploaded and accessed by a room.
     svr.Post("/UploadSong" + to_string(room->GetID()), [roomID](const Request& req, Response& res) {
 
     auto room = ChatroomManager::Instance().GetChatroom(roomID);
@@ -267,9 +288,9 @@ void AppServer::CreateInitialRoutes()
 
         vector<string> fileType = StringSplitInTwo(file.content_type, "/");
 
-        cout << fileType[0] << '\n';  
-        cout << fileType[1] << '\n';  
-        cout << contentLength << '\n';  
+        // cout << fileType[0] << '\n';  
+        // cout << fileType[1] << '\n';  
+        // cout << contentLength << '\n';  
 
         if (fileType[0] == "audio" && fileType[1] == "mpeg")
         {
@@ -284,7 +305,6 @@ void AppServer::CreateInitialRoutes()
             room->Reset();
             SongManager::Instance().AddSong(file.filename);
 
-            cout << path << '\n';    
         }
     }
 
@@ -327,7 +347,7 @@ void AppServer::CreateInitialRoutes()
         {
             double time = stod(reqp.get_param_value("Time"));
 
-            cout << "Time: " << time << '\n';
+            // cout << "Time: " << time << '\n';
 
             room->Play(time);
         }

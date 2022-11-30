@@ -2,7 +2,7 @@
 //  CS 3307 Group Project
 //
 //  Created by Balaaj Arbab on 2022-10-31.
-//  Date: 3rd November 2022
+//  
 //
 //  Manages the http server component of the backend.
 //
@@ -28,20 +28,26 @@
 #include "FriendManager.h"
 
 /// @brief The HTTP webserver for the app.
+/// The HTTP webserver for the app which initializes, and creates HTTP routes for the app to function.
+/// @author Balaaj Arbab
 class AppServer
 {
 public:
     /// @brief Initializes the app server.
+    /// Initializes and creates the app server.
     AppServer();
 
     /// @brief Singleton design pattern for AppServer
+    /// Allows access to a singular instance of the AppServer across the project.
     /// @return A reference to the instance of AppServer
     static AppServer& Instance();
 
     /// @brief Sets up http endpoints.
+    /// Creates all the necessary HTTP endpoints for the app to function.
     void CreateInitialRoutes();
 
     /// @brief Starts the webserver.
+    /// Opens the webserver to requests.
     void Run();
 
 private:

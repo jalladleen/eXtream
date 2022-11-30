@@ -16,14 +16,18 @@
 #include "LoginDB.hpp"
 
 /// @brief Logging in functionality.
+/// Used to handle Logging in functionality for a user.
+/// @author Balaaj Arbab
 class Login
 {
 public:
     /// @brief Singleton design pattern for Login.
+    /// Allows access to a singular instance of Login across the project.
     /// @return A reference to the instance of Login.
     static const Login& Instance();
 
     /// @brief Checks to see whether input credentials are valid and exist.
+    /// Checks to see whether input credentials are valid and exist.
     /// @param username Username of the user trying to log in.
     /// @param pw Password of the user trying to log in.
     /// @return 1 if successful, -1 if not.

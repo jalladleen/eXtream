@@ -10,7 +10,7 @@
                 "./*.cpp",
                 "-o",
                 // "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "${fileDirname}/Program.exe",
+                "../Program.exe",
                 "-lsqlite3",
                 "-pthread"
             ],
