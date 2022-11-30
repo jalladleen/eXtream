@@ -1,0 +1,221 @@
+\hypertarget{classCookieDB}{}\doxysection{Cookie\+DB Class Reference}
+\label{classCookieDB}\index{CookieDB@{CookieDB}}
+
+
+Provides access to the Cookie Table for the app.  
+
+
+
+
+{\ttfamily \#include $<$Cookie\+D\+B.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCookieDB_ab40330cedf2723506e69c57992679d34}{Cookie\+DB}} (const std\+::string \&table\+Name)
+\begin{DoxyCompactList}\small\item\em Initializes the object and acquires a database handle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCookieDB_adc1d1ba35cb8e4a625fb15af45c6970b}\label{classCookieDB_adc1d1ba35cb8e4a625fb15af45c6970b}} 
+\mbox{\hyperlink{classCookieDB_adc1d1ba35cb8e4a625fb15af45c6970b}{$\sim$\+Cookie\+DB}} ()
+\begin{DoxyCompactList}\small\item\em Safely closes the Database handle and cleans up. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCookieDB_a0593b0032d1d958bd08a29898d97f42a}{Add\+Session}} (const std\+::string \&username, const std\+::string \&cookie)
+\begin{DoxyCompactList}\small\item\em Adds a session entry to DB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCookieDB_acdb4f7a0c01c702155925fc1a4379b5d}{Remove\+Session\+Via\+Username}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Removes a session from the DB via username. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCookieDB_a6c6356bce2952b39216700709f54f221}{Remove\+Session\+Via\+Cookie}} (const std\+::string \&cookie)
+\begin{DoxyCompactList}\small\item\em Removes a session from the DB via cookie. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCookieDB_a205cd9fd4074b80939c6f5f4639c9e69}{Get\+Username}} (const std\+::string \&cookie)
+\begin{DoxyCompactList}\small\item\em Gets the username associated with the user with given cookie. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCookieDB_aad007af4821a877ba815724997d72f11}{Cookie\+Exists}} (const std\+::string \&cookie)
+\begin{DoxyCompactList}\small\item\em Checks whether a given cookie exists in the DB. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCookieDB_a9f5e03f8e3872c5a9367b635bff8f9b2}{Destroy\+Cookie\+Table}} ()
+\begin{DoxyCompactList}\small\item\em D\+R\+O\+PS the cookie table. Used for cleanup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCookieDB_adc352d1ed2d969ab65a65afda37d9d3e}{username\+Exists}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Checks whether a given username exists in the DB. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classCookieDB_acbd724306ebd67f3c9d10f5c1133ade9}{Read\+All}} ()
+\begin{DoxyCompactList}\small\item\em String representation for all rows in the cookie table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCookieDB_a9dee565f39868dfebfd9fb2f1966d0df}\label{classCookieDB_a9dee565f39868dfebfd9fb2f1966d0df}} 
+int {\bfseries table\+Setup} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCookieDB_a07c0cd9d93670159abb54de28f8881b4}\label{classCookieDB_a07c0cd9d93670159abb54de28f8881b4}} 
+const std\+::string {\bfseries \+\_\+table\+Name}
+\item 
+\mbox{\Hypertarget{classCookieDB_ac88a09eaee2a3bd27a177bdd3480bcda}\label{classCookieDB_ac88a09eaee2a3bd27a177bdd3480bcda}} 
+sqlite3 $\ast$ {\bfseries \+\_\+db\+Object}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the Cookie Table for the app. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCookieDB_ab40330cedf2723506e69c57992679d34}\label{classCookieDB_ab40330cedf2723506e69c57992679d34}} 
+\index{CookieDB@{CookieDB}!CookieDB@{CookieDB}}
+\index{CookieDB@{CookieDB}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{CookieDB()}{CookieDB()}}
+{\footnotesize\ttfamily Cookie\+D\+B\+::\+Cookie\+DB (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{table\+Name }\end{DoxyParamCaption})}
+
+
+
+Initializes the object and acquires a database handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Name} & Table name of the cookie table. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCookieDB_a0593b0032d1d958bd08a29898d97f42a}\label{classCookieDB_a0593b0032d1d958bd08a29898d97f42a}} 
+\index{CookieDB@{CookieDB}!AddSession@{AddSession}}
+\index{AddSession@{AddSession}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{AddSession()}{AddSession()}}
+{\footnotesize\ttfamily int Cookie\+D\+B\+::\+Add\+Session (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{const std\+::string \&}]{cookie }\end{DoxyParamCaption})}
+
+
+
+Adds a session entry to DB. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Username associated with user. \\
+\hline
+{\em cookie} & Cookie for the current session of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_aad007af4821a877ba815724997d72f11}\label{classCookieDB_aad007af4821a877ba815724997d72f11}} 
+\index{CookieDB@{CookieDB}!CookieExists@{CookieExists}}
+\index{CookieExists@{CookieExists}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{CookieExists()}{CookieExists()}}
+{\footnotesize\ttfamily bool Cookie\+D\+B\+::\+Cookie\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cookie }\end{DoxyParamCaption})}
+
+
+
+Checks whether a given cookie exists in the DB. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie string to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_a9f5e03f8e3872c5a9367b635bff8f9b2}\label{classCookieDB_a9f5e03f8e3872c5a9367b635bff8f9b2}} 
+\index{CookieDB@{CookieDB}!DestroyCookieTable@{DestroyCookieTable}}
+\index{DestroyCookieTable@{DestroyCookieTable}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{DestroyCookieTable()}{DestroyCookieTable()}}
+{\footnotesize\ttfamily int Cookie\+D\+B\+::\+Destroy\+Cookie\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+D\+R\+O\+PS the cookie table. Used for cleanup. 
+
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_a205cd9fd4074b80939c6f5f4639c9e69}\label{classCookieDB_a205cd9fd4074b80939c6f5f4639c9e69}} 
+\index{CookieDB@{CookieDB}!GetUsername@{GetUsername}}
+\index{GetUsername@{GetUsername}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{GetUsername()}{GetUsername()}}
+{\footnotesize\ttfamily string Cookie\+D\+B\+::\+Get\+Username (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cookie }\end{DoxyParamCaption})}
+
+
+
+Gets the username associated with the user with given cookie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Username of user with cookie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_acbd724306ebd67f3c9d10f5c1133ade9}\label{classCookieDB_acbd724306ebd67f3c9d10f5c1133ade9}} 
+\index{CookieDB@{CookieDB}!ReadAll@{ReadAll}}
+\index{ReadAll@{ReadAll}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{ReadAll()}{ReadAll()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ vector$<$ string $>$ $>$ Cookie\+D\+B\+::\+Read\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+String representation for all rows in the cookie table. 
+
+\begin{DoxyReturn}{Returns}
+shared\+\_\+ptr to a vector of the strings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_a6c6356bce2952b39216700709f54f221}\label{classCookieDB_a6c6356bce2952b39216700709f54f221}} 
+\index{CookieDB@{CookieDB}!RemoveSessionViaCookie@{RemoveSessionViaCookie}}
+\index{RemoveSessionViaCookie@{RemoveSessionViaCookie}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{RemoveSessionViaCookie()}{RemoveSessionViaCookie()}}
+{\footnotesize\ttfamily int Cookie\+D\+B\+::\+Remove\+Session\+Via\+Cookie (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cookie }\end{DoxyParamCaption})}
+
+
+
+Removes a session from the DB via cookie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie string of the user whose session to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_acdb4f7a0c01c702155925fc1a4379b5d}\label{classCookieDB_acdb4f7a0c01c702155925fc1a4379b5d}} 
+\index{CookieDB@{CookieDB}!RemoveSessionViaUsername@{RemoveSessionViaUsername}}
+\index{RemoveSessionViaUsername@{RemoveSessionViaUsername}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{RemoveSessionViaUsername()}{RemoveSessionViaUsername()}}
+{\footnotesize\ttfamily int Cookie\+D\+B\+::\+Remove\+Session\+Via\+Username (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Removes a session from the DB via username. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Username string of the user whose session to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCookieDB_adc352d1ed2d969ab65a65afda37d9d3e}\label{classCookieDB_adc352d1ed2d969ab65a65afda37d9d3e}} 
+\index{CookieDB@{CookieDB}!usernameExists@{usernameExists}}
+\index{usernameExists@{usernameExists}!CookieDB@{CookieDB}}
+\doxysubsubsection{\texorpdfstring{usernameExists()}{usernameExists()}}
+{\footnotesize\ttfamily bool Cookie\+D\+B\+::username\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Checks whether a given username exists in the DB. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & username string to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cookie\+D\+B.\+h\item 
+Cookie\+D\+B.\+cpp\end{DoxyCompactItemize}

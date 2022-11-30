@@ -1,0 +1,86 @@
+\hypertarget{classAppServer}{}\doxysection{App\+Server Class Reference}
+\label{classAppServer}\index{AppServer@{AppServer}}
+
+
+The H\+T\+TP webserver for the app. The H\+T\+TP webserver for the app which initializes, and creates H\+T\+TP routes for the app to function.  
+
+
+
+
+{\ttfamily \#include $<$App\+Server.\+h$>$}
+
+
+
+Collaboration diagram for App\+Server\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServer_a9d2aaba83b07a38dbd7ec953b060fa89}\label{classAppServer_a9d2aaba83b07a38dbd7ec953b060fa89}} 
+\mbox{\hyperlink{classAppServer_a9d2aaba83b07a38dbd7ec953b060fa89}{App\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the app server. Initializes and creates the app server. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppServer_a41ebb42e7a15ce762c88f3a76921987b}\label{classAppServer_a41ebb42e7a15ce762c88f3a76921987b}} 
+void \mbox{\hyperlink{classAppServer_a41ebb42e7a15ce762c88f3a76921987b}{Create\+Initial\+Routes}} ()
+\begin{DoxyCompactList}\small\item\em Sets up http endpoints. Creates all the necessary H\+T\+TP endpoints for the app to function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppServer_a614a2e37dec37ecdb0cf6396be996a4e}\label{classAppServer_a614a2e37dec37ecdb0cf6396be996a4e}} 
+void \mbox{\hyperlink{classAppServer_a614a2e37dec37ecdb0cf6396be996a4e}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Starts the webserver. Opens the webserver to requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classAppServer}{App\+Server}} \& \mbox{\hyperlink{classAppServer_a24299ac120eb73c642150983a2959560}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classAppServer}{App\+Server}} Allows access to a singular instance of the \mbox{\hyperlink{classAppServer}{App\+Server}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServer_a69a95b9dc981cbd7196c4dcc1b09c62e}\label{classAppServer_a69a95b9dc981cbd7196c4dcc1b09c62e}} 
+{\bfseries App\+Server} (const \mbox{\hyperlink{classAppServer}{App\+Server}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classAppServer_a32416b527ffe244b44c0844545df6ad4}\label{classAppServer_a32416b527ffe244b44c0844545df6ad4}} 
+\mbox{\hyperlink{classAppServer}{App\+Server}} \& {\bfseries operator=} (const \mbox{\hyperlink{classAppServer}{App\+Server}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServer_a0bb7a9827ab9656b900e26f073558cc2}\label{classAppServer_a0bb7a9827ab9656b900e26f073558cc2}} 
+const std\+::string {\bfseries B\+A\+S\+E\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH} \{\char`\"{}.\char`\"{}\}
+\item 
+\mbox{\Hypertarget{classAppServer_a29bc71ce2af2168cd8692fb617a9fbbc}\label{classAppServer_a29bc71ce2af2168cd8692fb617a9fbbc}} 
+\mbox{\hyperlink{classhttplib_1_1Server}{httplib\+::\+Server}} {\bfseries svr}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServer_a39455a4a8ef04a9011c808a9294081e6}\label{classAppServer_a39455a4a8ef04a9011c808a9294081e6}} 
+static \mbox{\hyperlink{classAppServer}{App\+Server}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The H\+T\+TP webserver for the app. The H\+T\+TP webserver for the app which initializes, and creates H\+T\+TP routes for the app to function. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAppServer_a24299ac120eb73c642150983a2959560}\label{classAppServer_a24299ac120eb73c642150983a2959560}} 
+\index{AppServer@{AppServer}!Instance@{Instance}}
+\index{Instance@{Instance}!AppServer@{AppServer}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAppServer}{App\+Server}} \& App\+Server\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classAppServer}{App\+Server}} Allows access to a singular instance of the \mbox{\hyperlink{classAppServer}{App\+Server}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classAppServer}{App\+Server}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Server.\+h\item 
+App\+Server.\+cpp\end{DoxyCompactItemize}

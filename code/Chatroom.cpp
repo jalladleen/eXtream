@@ -14,12 +14,14 @@ Chatroom::Chatroom(int roomID, const string& hostCookie)
 : _roomID{ roomID }, _hostCookie{ hostCookie }
 {
     _setMutex = new mutex();
+    cout << "Chatroom with ID: " << roomID << " created by cookie: " << hostCookie << '\n';
 }
 
 Chatroom::Chatroom(int roomID, const string& hostCookie, const string& hostUsername)
 : _roomID{ roomID }, _hostCookie{ hostCookie }, _hostUsername{ hostUsername }
 {
     _setMutex = new mutex();
+    cout << "Chatroom with ID: " << roomID << " created by: " << hostUsername << '\n';
 }
 
 Chatroom::~Chatroom()

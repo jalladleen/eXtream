@@ -1,0 +1,199 @@
+\hypertarget{classLoginDB}{}\doxysection{Login\+DB Class Reference}
+\label{classLoginDB}\index{LoginDB@{LoginDB}}
+
+
+The \mbox{\hyperlink{classLoginDB}{Login\+DB}} class.  
+
+
+
+
+{\ttfamily \#include $<$Login\+D\+B.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoginDB_a6ff2210fdadd06b04bf4824762c5c833}{Login\+DB}} (std\+::string table\+Name)
+\item 
+\mbox{\hyperlink{classLoginDB_a65e0b903d915f155a1dffecbaf0a882f}{$\sim$\+Login\+DB}} ()
+\item 
+int \mbox{\hyperlink{classLoginDB_a9c32980d7d88b258087ab14cc05ce58f}{verify\+Login}} (std\+::string username, std\+::string password)
+\item 
+int \mbox{\hyperlink{classLoginDB_a7dffef1e93a62eec4e42210c6f6564b7}{change\+Password}} (std\+::string username, std\+::string np)
+\item 
+int \mbox{\hyperlink{classLoginDB_a92b34746a4128e9c45a7ba2dae58b108}{create\+Account}} (std\+::string u, std\+::string p)
+\item 
+int \mbox{\hyperlink{classLoginDB_a84b9e4fb4a2c4d3fa1439e8561c56ec9}{check\+Username}} (std\+::string username)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classLoginDB_ab9ce5d78947d18d9d142788a57109496}{get\+User\+Database}} ()
+\item 
+std\+::string \mbox{\hyperlink{classLoginDB_adbbad666cb5e9f8fb74bdee8fc67081a}{encrypt}} (std\+::string pw)
+\item 
+std\+::string \mbox{\hyperlink{classLoginDB_a4c3f93cdbcf95e416de72454b2dfc9f1}{decrypt}} (std\+::string epw)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoginDB_a1ee0df0ecbcd74b1a6df53c9570c5fc7}\label{classLoginDB_a1ee0df0ecbcd74b1a6df53c9570c5fc7}} 
+sqlite3 $\ast$ {\bfseries db}
+\item 
+\mbox{\Hypertarget{classLoginDB_ac6d970f10bbc698f1c2a315673073313}\label{classLoginDB_ac6d970f10bbc698f1c2a315673073313}} 
+std\+::string {\bfseries \+\_\+table\+Name}
+\item 
+\mbox{\Hypertarget{classLoginDB_aa42d15bc4a5a9a6074a45da9ffbe4848}\label{classLoginDB_aa42d15bc4a5a9a6074a45da9ffbe4848}} 
+int {\bfseries num\+Users}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classLoginDB}{Login\+DB}} class. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Herbert
+\end{DoxyAuthor}
+This class represents the database that will store all user information \begin{DoxyAuthor}{Author}
+Daniel Herbert
+\end{DoxyAuthor}
+This class will connect to an sqlite database and store all user information in the database, as well as the friends a user has added It implements the functions for verifying a user\textquotesingle{}s login credentials, changing a user\textquotesingle{}s password, creating an account, checking if a username already exists, as well as allowing a user to add a friend and subsequently updating that in the database. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLoginDB_a6ff2210fdadd06b04bf4824762c5c833}\label{classLoginDB_a6ff2210fdadd06b04bf4824762c5c833}} 
+\index{LoginDB@{LoginDB}!LoginDB@{LoginDB}}
+\index{LoginDB@{LoginDB}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{LoginDB()}{LoginDB()}}
+{\footnotesize\ttfamily Login\+D\+B\+::\+Login\+DB (\begin{DoxyParamCaption}\item[{std\+::string}]{table\+Name }\end{DoxyParamCaption})}
+
+Constructor that creates a sqlite database and two tables\+: one to store user login credentials and the other to track the friends a user has added
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & name of the user login table\\
+\hline
+\end{DoxyParams}
+Constructor for the \mbox{\hyperlink{classLoginDB}{Login\+DB}} class Table name is passed to the constructor Constructor opens a database connection and creates a table that will store all user login info \mbox{\Hypertarget{classLoginDB_a65e0b903d915f155a1dffecbaf0a882f}\label{classLoginDB_a65e0b903d915f155a1dffecbaf0a882f}} 
+\index{LoginDB@{LoginDB}!````~LoginDB@{$\sim$LoginDB}}
+\index{````~LoginDB@{$\sim$LoginDB}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{$\sim$LoginDB()}{~LoginDB()}}
+{\footnotesize\ttfamily Login\+D\+B\+::$\sim$\+Login\+DB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor to close database connection 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoginDB_a7dffef1e93a62eec4e42210c6f6564b7}\label{classLoginDB_a7dffef1e93a62eec4e42210c6f6564b7}} 
+\index{LoginDB@{LoginDB}!changePassword@{changePassword}}
+\index{changePassword@{changePassword}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{changePassword()}{changePassword()}}
+{\footnotesize\ttfamily int Login\+D\+B\+::change\+Password (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{np }\end{DoxyParamCaption})}
+
+Changes a user\textquotesingle{}s password
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The user\textquotesingle{}s username that wants their password changed \\
+\hline
+{\em newpw} & The new password the user would like to change their password to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 1 if the password was successfully changed and updated in the database, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_a84b9e4fb4a2c4d3fa1439e8561c56ec9}\label{classLoginDB_a84b9e4fb4a2c4d3fa1439e8561c56ec9}} 
+\index{LoginDB@{LoginDB}!checkUsername@{checkUsername}}
+\index{checkUsername@{checkUsername}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{checkUsername()}{checkUsername()}}
+{\footnotesize\ttfamily int Login\+D\+B\+::check\+Username (\begin{DoxyParamCaption}\item[{std\+::string}]{username }\end{DoxyParamCaption})}
+
+Checks if a username already exists in the database
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username a user would like to sign up with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_a92b34746a4128e9c45a7ba2dae58b108}\label{classLoginDB_a92b34746a4128e9c45a7ba2dae58b108}} 
+\index{LoginDB@{LoginDB}!createAccount@{createAccount}}
+\index{createAccount@{createAccount}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{createAccount()}{createAccount()}}
+{\footnotesize\ttfamily int Login\+D\+B\+::create\+Account (\begin{DoxyParamCaption}\item[{std\+::string}]{u,  }\item[{std\+::string}]{p }\end{DoxyParamCaption})}
+
+Creates an account and stores user credentials in the database
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The username of the new user \\
+\hline
+{\em p} & The password the new user would like to use\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 1 if the account was successfully created, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_a4c3f93cdbcf95e416de72454b2dfc9f1}\label{classLoginDB_a4c3f93cdbcf95e416de72454b2dfc9f1}} 
+\index{LoginDB@{LoginDB}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily string Login\+D\+B\+::decrypt (\begin{DoxyParamCaption}\item[{std\+::string}]{epw }\end{DoxyParamCaption})}
+
+Decrypts an encrypted password
+
+
+\begin{DoxyParams}{Parameters}
+{\em epw} & An encrypted password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string The decrypted password 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_adbbad666cb5e9f8fb74bdee8fc67081a}\label{classLoginDB_adbbad666cb5e9f8fb74bdee8fc67081a}} 
+\index{LoginDB@{LoginDB}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily string Login\+D\+B\+::encrypt (\begin{DoxyParamCaption}\item[{std\+::string}]{pw }\end{DoxyParamCaption})}
+
+Encrypts the password a user would like to use
+
+
+\begin{DoxyParams}{Parameters}
+{\em pw} & Users password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string Encrypted password 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_ab9ce5d78947d18d9d142788a57109496}\label{classLoginDB_ab9ce5d78947d18d9d142788a57109496}} 
+\index{LoginDB@{LoginDB}!getUserDatabase@{getUserDatabase}}
+\index{getUserDatabase@{getUserDatabase}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{getUserDatabase()}{getUserDatabase()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Login\+D\+B\+::get\+User\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getting user credentials for all users in the database
+
+\begin{DoxyReturn}{Returns}
+vector$<$std\+::string$>$ Vector containing all stored information for each user in the database 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoginDB_a9c32980d7d88b258087ab14cc05ce58f}\label{classLoginDB_a9c32980d7d88b258087ab14cc05ce58f}} 
+\index{LoginDB@{LoginDB}!verifyLogin@{verifyLogin}}
+\index{verifyLogin@{verifyLogin}!LoginDB@{LoginDB}}
+\doxysubsubsection{\texorpdfstring{verifyLogin()}{verifyLogin()}}
+{\footnotesize\ttfamily int Login\+D\+B\+::verify\+Login (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})}
+
+Verifies a user\textquotesingle{}s login credentials
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The username passed to login \\
+\hline
+{\em password} & The password passed to login\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 1 if the user credentials entered are correct, 0 otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Login\+D\+B.\+hpp\item 
+Login\+D\+B.\+cpp\end{DoxyCompactItemize}

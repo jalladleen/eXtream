@@ -1,0 +1,135 @@
+\hypertarget{classFriendManager}{}\doxysection{Friend\+Manager Class Reference}
+\label{classFriendManager}\index{FriendManager@{FriendManager}}
+
+
+Manages Friend connections between users.  
+
+
+
+
+{\ttfamily \#include $<$Friend\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Friend\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classFriendManager_a8319eabbde78ed8d0b612ca45fdd9127}{Add\+Friend}} (const std\+::string \&username, const std\+::string \&friend\+Username)
+\begin{DoxyCompactList}\small\item\em Adds a friend relationship between 2 users. Adds a friend relationship between 2 users and stores it in the friends database table. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classFriendManager_a2401ab036d0479d16c37cefecd217110}{Get\+All\+Friends}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Returns the username of all usernames that are friends with the input user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFriendManager_a663f3ba4cd8871d15f25f06f9833a43e}{Get\+H\+T\+M\+L\+Representation}} (const std\+::string \&username, std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Creates the H\+T\+ML representation of all friends of a user. Creates the H\+T\+ML representation of all friends of a user and stores it in str, to be used for the friends list component of the front page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} \& \mbox{\hyperlink{classFriendManager_a31306d4fa70ebbdf81eb9032934286f7}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classFriendManager}{Friend\+Manager}}. Allows access to a singular instance \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFriendManager_a9d0c6f32ef0f2fd28e6b6d5561b962f4}\label{classFriendManager_a9d0c6f32ef0f2fd28e6b6d5561b962f4}} 
+{\bfseries Friend\+Manager} (const \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classFriendManager_a23718674666e16eb1ba24fecbf143ed4}\label{classFriendManager_a23718674666e16eb1ba24fecbf143ed4}} 
+\mbox{\hyperlink{classFriendManager}{Friend\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFriendManager_af5ee7d18b312b61570734a542056a932}\label{classFriendManager_af5ee7d18b312b61570734a542056a932}} 
+const std\+::string {\bfseries F\+R\+I\+E\+N\+D\+S\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}friends\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFriendManager_abb0e9797555adad89af4319f6d36b536}\label{classFriendManager_abb0e9797555adad89af4319f6d36b536}} 
+static \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages Friend connections between users. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFriendManager_a8319eabbde78ed8d0b612ca45fdd9127}\label{classFriendManager_a8319eabbde78ed8d0b612ca45fdd9127}} 
+\index{FriendManager@{FriendManager}!AddFriend@{AddFriend}}
+\index{AddFriend@{AddFriend}!FriendManager@{FriendManager}}
+\doxysubsubsection{\texorpdfstring{AddFriend()}{AddFriend()}}
+{\footnotesize\ttfamily int Friend\+Manager\+::\+Add\+Friend (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{const std\+::string \&}]{friend\+Username }\end{DoxyParamCaption})}
+
+
+
+Adds a friend relationship between 2 users. Adds a friend relationship between 2 users and stores it in the friends database table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & first user \\
+\hline
+{\em friend\+Username} & The user to add as friend to first user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 is the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFriendManager_a2401ab036d0479d16c37cefecd217110}\label{classFriendManager_a2401ab036d0479d16c37cefecd217110}} 
+\index{FriendManager@{FriendManager}!GetAllFriends@{GetAllFriends}}
+\index{GetAllFriends@{GetAllFriends}!FriendManager@{FriendManager}}
+\doxysubsubsection{\texorpdfstring{GetAllFriends()}{GetAllFriends()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ Friend\+Manager\+::\+Get\+All\+Friends (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Returns the username of all usernames that are friends with the input user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The input user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared\+\_\+ptr to a list of friend usernames. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFriendManager_a663f3ba4cd8871d15f25f06f9833a43e}\label{classFriendManager_a663f3ba4cd8871d15f25f06f9833a43e}} 
+\index{FriendManager@{FriendManager}!GetHTMLRepresentation@{GetHTMLRepresentation}}
+\index{GetHTMLRepresentation@{GetHTMLRepresentation}!FriendManager@{FriendManager}}
+\doxysubsubsection{\texorpdfstring{GetHTMLRepresentation()}{GetHTMLRepresentation()}}
+{\footnotesize\ttfamily void Friend\+Manager\+::\+Get\+H\+T\+M\+L\+Representation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Creates the H\+T\+ML representation of all friends of a user. Creates the H\+T\+ML representation of all friends of a user and stores it in str, to be used for the friends list component of the front page. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The input user. \\
+\hline
+{\em str} & A reference to a string where the H\+T\+ML will be stored. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFriendManager_a31306d4fa70ebbdf81eb9032934286f7}\label{classFriendManager_a31306d4fa70ebbdf81eb9032934286f7}} 
+\index{FriendManager@{FriendManager}!Instance@{Instance}}
+\index{Instance@{Instance}!FriendManager@{FriendManager}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} \& Friend\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classFriendManager}{Friend\+Manager}}. Allows access to a singular instance \mbox{\hyperlink{classFriendManager}{Friend\+Manager}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classFriendManager}{Friend\+Manager}}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Friend\+Manager.\+h\item 
+Friend\+Manager.\+cpp\end{DoxyCompactItemize}

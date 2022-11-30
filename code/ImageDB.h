@@ -19,18 +19,15 @@
 #include "Utility.h"
 
 /// @brief Provides access to the Image Table for the app.
-/// Provides access to the Image Table for the app.
 /// @author Balaaj Arbab
 class ImageDB
 {
 public:
     /// @brief Initializes the object and acquires a database handle.
-    /// Initializes the object and acquires a database handle.
     /// @param tableName Table name of the Image table.
     ImageDB(const std::string& tableName);
 
     /// @brief Safely closes the Database handle and cleans up.
-    /// Safely closes the Database handle and cleans up.
     ~ImageDB();
 
     /// @brief Adds a new user to the image database table with the default profile pic URL.
@@ -40,14 +37,12 @@ public:
     int AddNewUser(const std::string& username);
 
     /// @brief Updates the profile pic URL stored for the given user in the image database table.
-    ///  Updates the profile pic URL stored for the given user in the image database table.
     /// @param username The name of the user to update.
     /// @param url The URL of the new image.
     /// @return 1 if the operation was successful, not 1 if not.
     int UpdateProfilePic(const std::string& username, const std::string& url);
 
     /// @brief Gets the URL of the image associated with the given user.
-    /// Gets the URL of the image associated with the given user.
     /// @param username The name of the user whose profile picture to get.
     /// @return The URL of the profile picture for the user.
     std::string GetUserProfilePic(const std::string& username);

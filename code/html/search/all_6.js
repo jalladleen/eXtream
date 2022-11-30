@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['getallfriends_34',['GetAllFriends',['../classFriendManager.html#a2401ab036d0479d16c37cefecd217110',1,'FriendManager::GetAllFriends()'],['../classFriendsListDB.html#ac81209ff2d0efb634a490023cbefef35',1,'FriendsListDB::GetAllFriends()']]],
+  ['getchatroom_35',['GetChatroom',['../classChatroomManager.html#a0b47c52f712e2d2037f162faab5ef08f',1,'ChatroomManager']]],
+  ['getcurrentsongname_36',['GetCurrentSongName',['../classChatroom.html#a42b8baee4322e4b2704614ba7e959b91',1,'Chatroom']]],
+  ['getcurrentsonguploader_37',['GetCurrentSongUploader',['../classChatroom.html#ad8291c82290f6c7536704d9701e94143',1,'Chatroom']]],
+  ['gethostcookie_38',['GetHostCookie',['../classChatroom.html#a77502fbd6ba962e5de7249e81a1eb6b0',1,'Chatroom']]],
+  ['gethostusername_39',['GetHostUsername',['../classChatroom.html#a23569582c5636840b3695e9f26ef8f50',1,'Chatroom']]],
+  ['gethtmlrepresentation_40',['GetHTMLRepresentation',['../classFriendManager.html#a663f3ba4cd8871d15f25f06f9833a43e',1,'FriendManager']]],
+  ['getid_41',['GetID',['../classChatroom.html#adce50f521e5a374da35970ec4024c443',1,'Chatroom']]],
+  ['getintervalelapsed_42',['GetIntervalElapsed',['../classStopwatch.html#a9b93891c50958c742b9ae9bdfb669c62',1,'Stopwatch']]],
+  ['getsongtime_43',['GetSongTime',['../classChatroom.html#a3dcde879a1a861965d147b7231154799',1,'Chatroom']]],
+  ['getstate_44',['GetState',['../classChatroom.html#acf85477f96e38e2f955375d9daed227a',1,'Chatroom']]],
+  ['getuser_45',['GetUser',['../classSessionManager.html#a3db3c23a2ebc0831dd305d8194339920',1,'SessionManager']]],
+  ['getusercount_46',['GetUserCount',['../classChatroom.html#afbf21a54b5aff683d194e8272e434337',1,'Chatroom']]],
+  ['getuserdatabase_47',['getUserDatabase',['../classLoginDB.html#ab9ce5d78947d18d9d142788a57109496',1,'LoginDB']]],
+  ['getusername_48',['GetUsername',['../classCookieDB.html#a205cd9fd4074b80939c6f5f4639c9e69',1,'CookieDB']]],
+  ['getusernames_49',['GetUsernames',['../classChatroom.html#a351d25fd32bfad74f046a2bac3559bf8',1,'Chatroom']]],
+  ['getuserprofilepic_50',['GetUserProfilePic',['../classImageDB.html#a7ea15b075fd1dc8b354529f56fb20494',1,'ImageDB::GetUserProfilePic()'],['../classProfilePictureManager.html#a7cb3e73baf427c7feb1661b721b08672',1,'ProfilePictureManager::GetUserProfilePic()']]]
+];

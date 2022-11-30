@@ -1,0 +1,96 @@
+\hypertarget{classLogin}{}\doxysection{Login Class Reference}
+\label{classLogin}\index{Login@{Login}}
+
+
+Logging in functionality. Used to handle Logging in functionality for a user.  
+
+
+
+
+{\ttfamily \#include $<$Login.\+h$>$}
+
+
+
+Collaboration diagram for Login\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classLogin_abf4aa70bf790857cf468f1811f81b52d}{Try\+Login}} (std\+::string username, std\+::string pw) const
+\begin{DoxyCompactList}\small\item\em Checks to see whether input credentials are valid and exist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classLogin}{Login}} \& \mbox{\hyperlink{classLogin_a5f4eaab77d765d2ee9d6d48f3b7fd3ce}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classLogin}{Login}}. Allows access to a singular instance of \mbox{\hyperlink{classLogin}{Login}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogin_ab76bbd226ddd4ecff74c6e391a006ba7}\label{classLogin_ab76bbd226ddd4ecff74c6e391a006ba7}} 
+{\bfseries Login} (const \mbox{\hyperlink{classLogin}{Login}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classLogin_a7737204092883e7b73a554b885137b26}\label{classLogin_a7737204092883e7b73a554b885137b26}} 
+\mbox{\hyperlink{classLogin}{Login}} \& {\bfseries operator=} (const \mbox{\hyperlink{classLogin}{Login}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogin_a764ff0bce4a5e7dc7bcbf2acd2867599}\label{classLogin_a764ff0bce4a5e7dc7bcbf2acd2867599}} 
+const std\+::string {\bfseries U\+S\+E\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}logintable\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogin_a7cc4f9a03ef73d221b72a6c7686d0b9f}\label{classLogin_a7cc4f9a03ef73d221b72a6c7686d0b9f}} 
+static const \mbox{\hyperlink{classLogin}{Login}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logging in functionality. Used to handle Logging in functionality for a user. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogin_a5f4eaab77d765d2ee9d6d48f3b7fd3ce}\label{classLogin_a5f4eaab77d765d2ee9d6d48f3b7fd3ce}} 
+\index{Login@{Login}!Instance@{Instance}}
+\index{Instance@{Instance}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classLogin}{Login}} \& Login\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classLogin}{Login}}. Allows access to a singular instance of \mbox{\hyperlink{classLogin}{Login}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classLogin}{Login}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogin_abf4aa70bf790857cf468f1811f81b52d}\label{classLogin_abf4aa70bf790857cf468f1811f81b52d}} 
+\index{Login@{Login}!TryLogin@{TryLogin}}
+\index{TryLogin@{TryLogin}!Login@{Login}}
+\doxysubsubsection{\texorpdfstring{TryLogin()}{TryLogin()}}
+{\footnotesize\ttfamily int Login\+::\+Try\+Login (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{pw }\end{DoxyParamCaption}) const}
+
+
+
+Checks to see whether input credentials are valid and exist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Username of the user trying to log in. \\
+\hline
+{\em pw} & Password of the user trying to log in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Login.\+h\item 
+Login.\+cpp\end{DoxyCompactItemize}

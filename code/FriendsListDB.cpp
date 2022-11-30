@@ -17,7 +17,7 @@ FriendsListDB::FriendsListDB(const string& tableName)
 {
     if (SQLITE_OK == sqlite3_open(DB_PATH, &_dbObject))
     {
-        cout << "Database successfully opened. Table: " + _tableName + '\n';
+        // cout << "Database successfully opened. Table: " + _tableName + '\n';
     }
     else
     {
@@ -31,7 +31,7 @@ FriendsListDB::FriendsListDB(const string& tableName)
 FriendsListDB::~FriendsListDB()
 {
     sqlite3_close(_dbObject);
-    cout << "Cookie database successfully closed.\n";
+    // cout << "Friends database successfully closed.\n";
 }
 
 int FriendsListDB::AddFriend(const string& username, const string& friendUsername)

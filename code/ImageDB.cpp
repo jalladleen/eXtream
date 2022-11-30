@@ -17,11 +17,11 @@ ImageDB::ImageDB(const string& tableName)
 {
     if (SQLITE_OK == sqlite3_open(DB_PATH, &_dbObject))
     {
-        cout << "Database successfully opened. Table: " + _tableName + '\n';
+        // cout << "Database successfully opened. Table: " + _tableName + '\n';
     }
     else
     {
-        cout << "Database could not be opened.";
+        // cout << "Database could not be opened.";
         throw "Database could not be opened.";
     }
 
@@ -31,7 +31,7 @@ ImageDB::ImageDB(const string& tableName)
 ImageDB::~ImageDB()
 {
     sqlite3_close(_dbObject);
-    cout << "Image database successfully closed.\n";
+    // cout << "Image database successfully closed.\n";
 }
 
 int ImageDB::AddNewUser(const string& username)

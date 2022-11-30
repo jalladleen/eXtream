@@ -16,13 +16,12 @@
 #include "ProfilePictureManager.h"
 
 /// @brief Account creating functionality.
-/// Account creating functionality.
 /// @author Balaaj Arbab
 class CreateAccount
 {
 public:
     /// @brief Singleton design pattern for CreateAccount.
-    /// /// Allows access to a singular instance of CreateAccount across the project.
+    /// Allows access to a singular instance of CreateAccount across the project.
     /// @return A reference to the instance of CreateAccount.
     static const CreateAccount& Instance();
 

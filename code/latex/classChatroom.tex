@@ -1,0 +1,394 @@
+\hypertarget{classChatroom}{}\doxysection{Chatroom Class Reference}
+\label{classChatroom}\index{Chatroom@{Chatroom}}
+
+
+Represents a \mbox{\hyperlink{classChatroom}{Chatroom}} that is a conduit between users. Represents a \mbox{\hyperlink{classChatroom}{Chatroom}} that connects Users together, stores the currently selected song and its controls.  
+
+
+
+
+{\ttfamily \#include $<$Chatroom.\+h$>$}
+
+
+
+Collaboration diagram for Chatroom\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroom_a138966cc4c94b9b552deaafc6d90c662}\label{classChatroom_a138966cc4c94b9b552deaafc6d90c662}} 
+enum \mbox{\hyperlink{classChatroom_a138966cc4c94b9b552deaafc6d90c662}{State}} \{ {\bfseries Paused}, 
+{\bfseries Playing}
+ \}
+\begin{DoxyCompactList}\small\item\em An enum to discern the state of song playback that a room is in. An enum to discern the state of song playback that a room is in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChatroom_a277f80a2aeff4e206f415f00732d6717}{Chatroom}} (int room\+ID, const std\+::string \&host\+Cookie)
+\begin{DoxyCompactList}\small\item\em Creates a chatroom. Creates a chatroom with room\+ID and host\+Cookie set. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChatroom_aea6e3f30eec372452acdec0de0e30d56}{Chatroom}} (int room\+ID, const std\+::string \&host\+Cookie, const std\+::string \&host\+Username)
+\begin{DoxyCompactList}\small\item\em Creates a chatroom. Creates a chatroom with room\+ID, host\+Cookie, and host\+Username set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChatroom_aa953e9fbdc56dadc927fbac1ded450a4}\label{classChatroom_aa953e9fbdc56dadc927fbac1ded450a4}} 
+\mbox{\hyperlink{classChatroom_aa953e9fbdc56dadc927fbac1ded450a4}{$\sim$\+Chatroom}} ()
+\begin{DoxyCompactList}\small\item\em Destroys a chatroom and does necessary clean up. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classChatroom_ada443ba0d9b43c55f5ab5ff75219300a}{Add\+User}} (std\+::string cookie, std\+::string username)
+\begin{DoxyCompactList}\small\item\em Adds a user who has tried to join the room. Adds a user who has tried to join the room, and stores their session\+ID and username. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classChatroom_a2549cb0aa9883036623b2ec6859da64e}{Remove\+User}} (std\+::string cookie)
+\begin{DoxyCompactList}\small\item\em Removes a user from the room. Removes a user from the room via their session\+ID. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classChatroom_a351d25fd32bfad74f046a2bac3559bf8}{Get\+Usernames}} (bool include\+Host=false)
+\begin{DoxyCompactList}\small\item\em A list of all currently joined user\textquotesingle{}s usernames. A list of all currently joined user\textquotesingle{}s usernames. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classChatroom_adce50f521e5a374da35970ec4024c443}{Get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Gets the room\textquotesingle{}s id. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatroom_a77502fbd6ba962e5de7249e81a1eb6b0}{Get\+Host\+Cookie}} ()
+\begin{DoxyCompactList}\small\item\em Gets cookie associated with room creator. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatroom_a23569582c5636840b3695e9f26ef8f50}{Get\+Host\+Username}} ()
+\begin{DoxyCompactList}\small\item\em Gets username associated with room creator. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classChatroom_afbf21a54b5aff683d194e8272e434337}{Get\+User\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Currently connected user count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatroom_aa1afcced118dacc0a411fa68eef2506c}{Form\+User\+H\+T\+ML}} (std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Creates the H\+T\+ML representing the list of users in the room. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatroom_a42b8baee4322e4b2704614ba7e959b91}{Get\+Current\+Song\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current song of the room. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classChatroom_ad8291c82290f6c7536704d9701e94143}{Get\+Current\+Song\+Uploader}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current song uploader of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatroom_aef13c2928ed7f87f6d7c394f512c852f}{Set\+Current\+Song\+Name}} (std\+::string new\+Song)
+\begin{DoxyCompactList}\small\item\em Sets the current song of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatroom_a6f45dccece40a5aaa22d9bce14f9569e}{Set\+Current\+Song\+Uploader}} (std\+::string new\+Uploader)
+\begin{DoxyCompactList}\small\item\em Sets the current song uploader of the room. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChatroom_a138966cc4c94b9b552deaafc6d90c662}{Chatroom\+::\+State}} \mbox{\hyperlink{classChatroom_acf85477f96e38e2f955375d9daed227a}{Get\+State}} ()
+\begin{DoxyCompactList}\small\item\em Returns the playback state of the room. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classChatroom_a3dcde879a1a861965d147b7231154799}{Get\+Song\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current song time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classChatroom_a9de707a1caaac80bf2577081f09a7fde}{Play}} (double start\+Time)
+\begin{DoxyCompactList}\small\item\em Starts playback. Starts playback at the specified starttime. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChatroom_a174d150d8486bbc03ce774d0912d2529}\label{classChatroom_a174d150d8486bbc03ce774d0912d2529}} 
+void \mbox{\hyperlink{classChatroom_a174d150d8486bbc03ce774d0912d2529}{Pause}} ()
+\begin{DoxyCompactList}\small\item\em Pauses playback. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChatroom_a95ad37fd87588c8529de9d38681272df}\label{classChatroom_a95ad37fd87588c8529de9d38681272df}} 
+void \mbox{\hyperlink{classChatroom_a95ad37fd87588c8529de9d38681272df}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the state of playback. Resets the state of playback. Song timer set to 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChatroom_a0836cf5fb0395776c57bb096be48180c}\label{classChatroom_a0836cf5fb0395776c57bb096be48180c}} 
+void \mbox{\hyperlink{classChatroom_a0836cf5fb0395776c57bb096be48180c}{Toggle\+Visibility}} ()
+\begin{DoxyCompactList}\small\item\em Flips the visibility of the room. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classChatroom_a7a9b2c48145bdd8d74411c3fe2d51f56}{Is\+Visible}} ()
+\begin{DoxyCompactList}\small\item\em Whether the room is visible or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroom_a1f7053dbc259cb38f4b2d7700ee2f1f5}\label{classChatroom_a1f7053dbc259cb38f4b2d7700ee2f1f5}} 
+int {\bfseries \+\_\+room\+ID}
+\item 
+\mbox{\Hypertarget{classChatroom_a07500f4ea33e06d918b1fc9ef0e5b6ea}\label{classChatroom_a07500f4ea33e06d918b1fc9ef0e5b6ea}} 
+std\+::string {\bfseries \+\_\+host\+Cookie}
+\item 
+\mbox{\Hypertarget{classChatroom_aa1bb712aeb153d25e20faee2ca878d79}\label{classChatroom_aa1bb712aeb153d25e20faee2ca878d79}} 
+std\+::string {\bfseries \+\_\+host\+Username}
+\item 
+\mbox{\Hypertarget{classChatroom_a15baa24b73b804487bf97f6f7d734e25}\label{classChatroom_a15baa24b73b804487bf97f6f7d734e25}} 
+std\+::string {\bfseries \+\_\+current\+Song\+Name} \{ \char`\"{}default\+\_\+song.\+mp3\char`\"{} \}
+\item 
+\mbox{\Hypertarget{classChatroom_abd31af8c6156d0314687dcaf5db50a84}\label{classChatroom_abd31af8c6156d0314687dcaf5db50a84}} 
+std\+::string {\bfseries \+\_\+current\+Song\+Uploader} \{ \char`\"{}Server\char`\"{} \}
+\item 
+\mbox{\Hypertarget{classChatroom_a0fc58f5dc8c76cf684b084b8da0aeeb2}\label{classChatroom_a0fc58f5dc8c76cf684b084b8da0aeeb2}} 
+\mbox{\hyperlink{classChatroom_a138966cc4c94b9b552deaafc6d90c662}{Chatroom\+::\+State}} {\bfseries \+\_\+state}
+\item 
+\mbox{\Hypertarget{classChatroom_a1894b59f3eb62e338f7cf190adf796ed}\label{classChatroom_a1894b59f3eb62e338f7cf190adf796ed}} 
+\mbox{\hyperlink{classStopwatch}{Stopwatch}} {\bfseries \+\_\+song\+Timer} \{ \}
+\item 
+\mbox{\Hypertarget{classChatroom_a118b39b4d531ca38a7e518e140d0fb6f}\label{classChatroom_a118b39b4d531ca38a7e518e140d0fb6f}} 
+double {\bfseries \+\_\+song\+Start\+Time} \{ 0 \}
+\item 
+\mbox{\Hypertarget{classChatroom_a82f4f7b8a49e217535edfc30381952a7}\label{classChatroom_a82f4f7b8a49e217535edfc30381952a7}} 
+bool {\bfseries \+\_\+visible} \{ true \}
+\item 
+\mbox{\Hypertarget{classChatroom_a5e0cdeb4755b4e1f881cef415a25f28c}\label{classChatroom_a5e0cdeb4755b4e1f881cef415a25f28c}} 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries \+\_\+connected\+Cookies}
+\item 
+\mbox{\Hypertarget{classChatroom_a46db41dd7f5e0f7648a5e1fbad11db79}\label{classChatroom_a46db41dd7f5e0f7648a5e1fbad11db79}} 
+std\+::mutex $\ast$ {\bfseries \+\_\+set\+Mutex}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a \mbox{\hyperlink{classChatroom}{Chatroom}} that is a conduit between users. Represents a \mbox{\hyperlink{classChatroom}{Chatroom}} that connects Users together, stores the currently selected song and its controls. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChatroom_a277f80a2aeff4e206f415f00732d6717}\label{classChatroom_a277f80a2aeff4e206f415f00732d6717}} 
+\index{Chatroom@{Chatroom}!Chatroom@{Chatroom}}
+\index{Chatroom@{Chatroom}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{Chatroom()}{Chatroom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Chatroom\+::\+Chatroom (\begin{DoxyParamCaption}\item[{int}]{room\+ID,  }\item[{const std\+::string \&}]{host\+Cookie }\end{DoxyParamCaption})}
+
+
+
+Creates a chatroom. Creates a chatroom with room\+ID and host\+Cookie set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+ID} & The id assigned to the room. \\
+\hline
+{\em host\+Cookie} & Cookie associated with creator of room. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChatroom_aea6e3f30eec372452acdec0de0e30d56}\label{classChatroom_aea6e3f30eec372452acdec0de0e30d56}} 
+\index{Chatroom@{Chatroom}!Chatroom@{Chatroom}}
+\index{Chatroom@{Chatroom}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{Chatroom()}{Chatroom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Chatroom\+::\+Chatroom (\begin{DoxyParamCaption}\item[{int}]{room\+ID,  }\item[{const std\+::string \&}]{host\+Cookie,  }\item[{const std\+::string \&}]{host\+Username }\end{DoxyParamCaption})}
+
+
+
+Creates a chatroom. Creates a chatroom with room\+ID, host\+Cookie, and host\+Username set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+ID} & The id assigned to the room. \\
+\hline
+{\em host\+Cookie} & Cookie associated with creator of room. \\
+\hline
+{\em host\+Username} & Username associated with creator of room. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChatroom_ada443ba0d9b43c55f5ab5ff75219300a}\label{classChatroom_ada443ba0d9b43c55f5ab5ff75219300a}} 
+\index{Chatroom@{Chatroom}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily bool Chatroom\+::\+Add\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{cookie,  }\item[{std\+::string}]{username }\end{DoxyParamCaption})}
+
+
+
+Adds a user who has tried to join the room. Adds a user who has tried to join the room, and stores their session\+ID and username. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie associated with joining user. \\
+\hline
+{\em username} & Username associated with joining user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the user was successfully added or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_aa1afcced118dacc0a411fa68eef2506c}\label{classChatroom_aa1afcced118dacc0a411fa68eef2506c}} 
+\index{Chatroom@{Chatroom}!FormUserHTML@{FormUserHTML}}
+\index{FormUserHTML@{FormUserHTML}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{FormUserHTML()}{FormUserHTML()}}
+{\footnotesize\ttfamily void Chatroom\+::\+Form\+User\+H\+T\+ML (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Creates the H\+T\+ML representing the list of users in the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & a reference to a string to be used to store the H\+T\+ML text. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChatroom_a42b8baee4322e4b2704614ba7e959b91}\label{classChatroom_a42b8baee4322e4b2704614ba7e959b91}} 
+\index{Chatroom@{Chatroom}!GetCurrentSongName@{GetCurrentSongName}}
+\index{GetCurrentSongName@{GetCurrentSongName}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetCurrentSongName()}{GetCurrentSongName()}}
+{\footnotesize\ttfamily std\+::string Chatroom\+::\+Get\+Current\+Song\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current song of the room. 
+
+\begin{DoxyReturn}{Returns}
+Name of the current song of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_ad8291c82290f6c7536704d9701e94143}\label{classChatroom_ad8291c82290f6c7536704d9701e94143}} 
+\index{Chatroom@{Chatroom}!GetCurrentSongUploader@{GetCurrentSongUploader}}
+\index{GetCurrentSongUploader@{GetCurrentSongUploader}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetCurrentSongUploader()}{GetCurrentSongUploader()}}
+{\footnotesize\ttfamily std\+::string Chatroom\+::\+Get\+Current\+Song\+Uploader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current song uploader of the room. 
+
+\begin{DoxyReturn}{Returns}
+Name of the current song uploader of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a77502fbd6ba962e5de7249e81a1eb6b0}\label{classChatroom_a77502fbd6ba962e5de7249e81a1eb6b0}} 
+\index{Chatroom@{Chatroom}!GetHostCookie@{GetHostCookie}}
+\index{GetHostCookie@{GetHostCookie}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetHostCookie()}{GetHostCookie()}}
+{\footnotesize\ttfamily std\+::string Chatroom\+::\+Get\+Host\+Cookie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets cookie associated with room creator. 
+
+\begin{DoxyReturn}{Returns}
+Host cookie. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a23569582c5636840b3695e9f26ef8f50}\label{classChatroom_a23569582c5636840b3695e9f26ef8f50}} 
+\index{Chatroom@{Chatroom}!GetHostUsername@{GetHostUsername}}
+\index{GetHostUsername@{GetHostUsername}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetHostUsername()}{GetHostUsername()}}
+{\footnotesize\ttfamily std\+::string Chatroom\+::\+Get\+Host\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets username associated with room creator. 
+
+\begin{DoxyReturn}{Returns}
+Host username. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_adce50f521e5a374da35970ec4024c443}\label{classChatroom_adce50f521e5a374da35970ec4024c443}} 
+\index{Chatroom@{Chatroom}!GetID@{GetID}}
+\index{GetID@{GetID}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily int Chatroom\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the room\textquotesingle{}s id. 
+
+\begin{DoxyReturn}{Returns}
+Room id integer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a3dcde879a1a861965d147b7231154799}\label{classChatroom_a3dcde879a1a861965d147b7231154799}} 
+\index{Chatroom@{Chatroom}!GetSongTime@{GetSongTime}}
+\index{GetSongTime@{GetSongTime}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetSongTime()}{GetSongTime()}}
+{\footnotesize\ttfamily double Chatroom\+::\+Get\+Song\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current song time. 
+
+\begin{DoxyReturn}{Returns}
+The current song time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_acf85477f96e38e2f955375d9daed227a}\label{classChatroom_acf85477f96e38e2f955375d9daed227a}} 
+\index{Chatroom@{Chatroom}!GetState@{GetState}}
+\index{GetState@{GetState}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classChatroom_a138966cc4c94b9b552deaafc6d90c662}{Chatroom\+::\+State}} Chatroom\+::\+Get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the playback state of the room. 
+
+\begin{DoxyReturn}{Returns}
+The playback state of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_afbf21a54b5aff683d194e8272e434337}\label{classChatroom_afbf21a54b5aff683d194e8272e434337}} 
+\index{Chatroom@{Chatroom}!GetUserCount@{GetUserCount}}
+\index{GetUserCount@{GetUserCount}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetUserCount()}{GetUserCount()}}
+{\footnotesize\ttfamily int Chatroom\+::\+Get\+User\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Currently connected user count. 
+
+\begin{DoxyReturn}{Returns}
+User count integer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a351d25fd32bfad74f046a2bac3559bf8}\label{classChatroom_a351d25fd32bfad74f046a2bac3559bf8}} 
+\index{Chatroom@{Chatroom}!GetUsernames@{GetUsernames}}
+\index{GetUsernames@{GetUsernames}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{GetUsernames()}{GetUsernames()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ vector$<$ string $>$ $>$ Chatroom\+::\+Get\+Usernames (\begin{DoxyParamCaption}\item[{bool}]{include\+Host = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+A list of all currently joined user\textquotesingle{}s usernames. A list of all currently joined user\textquotesingle{}s usernames. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$string$>$ of usernames. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a7a9b2c48145bdd8d74411c3fe2d51f56}\label{classChatroom_a7a9b2c48145bdd8d74411c3fe2d51f56}} 
+\index{Chatroom@{Chatroom}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Chatroom\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether the room is visible or not. 
+
+\begin{DoxyReturn}{Returns}
+Whether the room is visible or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_a9de707a1caaac80bf2577081f09a7fde}\label{classChatroom_a9de707a1caaac80bf2577081f09a7fde}} 
+\index{Chatroom@{Chatroom}!Play@{Play}}
+\index{Play@{Play}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Chatroom\+::\+Play (\begin{DoxyParamCaption}\item[{double}]{start\+Time }\end{DoxyParamCaption})}
+
+
+
+Starts playback. Starts playback at the specified starttime. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Time} & What time playback begins at. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChatroom_a2549cb0aa9883036623b2ec6859da64e}\label{classChatroom_a2549cb0aa9883036623b2ec6859da64e}} 
+\index{Chatroom@{Chatroom}!RemoveUser@{RemoveUser}}
+\index{RemoveUser@{RemoveUser}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{RemoveUser()}{RemoveUser()}}
+{\footnotesize\ttfamily bool Chatroom\+::\+Remove\+User (\begin{DoxyParamCaption}\item[{std\+::string}]{cookie }\end{DoxyParamCaption})}
+
+
+
+Removes a user from the room. Removes a user from the room via their session\+ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & Cookie associated with leaving user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the user was sucessfully removed or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroom_aef13c2928ed7f87f6d7c394f512c852f}\label{classChatroom_aef13c2928ed7f87f6d7c394f512c852f}} 
+\index{Chatroom@{Chatroom}!SetCurrentSongName@{SetCurrentSongName}}
+\index{SetCurrentSongName@{SetCurrentSongName}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{SetCurrentSongName()}{SetCurrentSongName()}}
+{\footnotesize\ttfamily void Chatroom\+::\+Set\+Current\+Song\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Song }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current song of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Song} & name of the new song. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChatroom_a6f45dccece40a5aaa22d9bce14f9569e}\label{classChatroom_a6f45dccece40a5aaa22d9bce14f9569e}} 
+\index{Chatroom@{Chatroom}!SetCurrentSongUploader@{SetCurrentSongUploader}}
+\index{SetCurrentSongUploader@{SetCurrentSongUploader}!Chatroom@{Chatroom}}
+\doxysubsubsection{\texorpdfstring{SetCurrentSongUploader()}{SetCurrentSongUploader()}}
+{\footnotesize\ttfamily void Chatroom\+::\+Set\+Current\+Song\+Uploader (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Uploader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current song uploader of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Uploader} & name of the new uploader. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chatroom.\+h\item 
+Chatroom.\+cpp\end{DoxyCompactItemize}

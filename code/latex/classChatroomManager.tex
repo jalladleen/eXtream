@@ -1,0 +1,143 @@
+\hypertarget{classChatroomManager}{}\doxysection{Chatroom\+Manager Class Reference}
+\label{classChatroomManager}\index{ChatroomManager@{ChatroomManager}}
+
+
+Manages the Chatrooms of the app.  
+
+
+
+
+{\ttfamily \#include $<$Chatroom\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Chatroom\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroomManager_a6f923553fc3d276957610a7eb6ad76f1}\label{classChatroomManager_a6f923553fc3d276957610a7eb6ad76f1}} 
+\mbox{\hyperlink{classChatroomManager_a6f923553fc3d276957610a7eb6ad76f1}{Chatroom\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} object. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classChatroom}{Chatroom}} $>$ \mbox{\hyperlink{classChatroomManager_a7104e06e777268f2f1dfdcd4dd532d4f}{Create\+Room}} (const std\+::string \&host\+Cookie)
+\begin{DoxyCompactList}\small\item\em Creates a new room. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classChatroomManager_a90b1c573981f39dbad64a76384ea82b5}\label{classChatroomManager_a90b1c573981f39dbad64a76384ea82b5}} 
+void \mbox{\hyperlink{classChatroomManager_a90b1c573981f39dbad64a76384ea82b5}{Print\+Chatrooms}} ()
+\begin{DoxyCompactList}\small\item\em Display all chatrooms with data on the console. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classChatroomManager_a9feb72383b859294caa269db95f68ce0}{Construct\+Grid\+Elements}} (std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Forms the H\+T\+ML representation of the grid of chatrooms on front page. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classChatroom}{Chatroom}} $>$ \mbox{\hyperlink{classChatroomManager_a0b47c52f712e2d2037f162faab5ef08f}{Get\+Chatroom}} (int id)
+\begin{DoxyCompactList}\small\item\em Gets the chatroom with associated id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} \& \mbox{\hyperlink{classChatroomManager_ae58377f55ded81217f7b0b0d50a6e9cf}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} /// Allows access to a singular instance of \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroomManager_a2e778af2abad2bc3bf5befbf0a81bd7c}\label{classChatroomManager_a2e778af2abad2bc3bf5befbf0a81bd7c}} 
+std\+::string {\bfseries Construct\+Grid\+Element} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classChatroom}{Chatroom}} $>$ room)
+\item 
+\mbox{\Hypertarget{classChatroomManager_a2bdafda7cdae519cab4d515e4cb0f146}\label{classChatroomManager_a2bdafda7cdae519cab4d515e4cb0f146}} 
+int {\bfseries New\+Distinct\+Room\+ID} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroomManager_a961592bcecdb2d204f4369ff921b6734}\label{classChatroomManager_a961592bcecdb2d204f4369ff921b6734}} 
+std\+::map$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classChatroom}{Chatroom}} $>$ $>$ {\bfseries \+\_\+chatrooms}
+\item 
+\mbox{\Hypertarget{classChatroomManager_aa5b976111d7040168496adff3d127444}\label{classChatroomManager_aa5b976111d7040168496adff3d127444}} 
+std\+::mutex $\ast$ {\bfseries \+\_\+map\+Mutex}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChatroomManager_ae4ff8347419da3ffe6db5c2c242e797b}\label{classChatroomManager_ae4ff8347419da3ffe6db5c2c242e797b}} 
+static \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the Chatrooms of the app. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChatroomManager_a9feb72383b859294caa269db95f68ce0}\label{classChatroomManager_a9feb72383b859294caa269db95f68ce0}} 
+\index{ChatroomManager@{ChatroomManager}!ConstructGridElements@{ConstructGridElements}}
+\index{ConstructGridElements@{ConstructGridElements}!ChatroomManager@{ChatroomManager}}
+\doxysubsubsection{\texorpdfstring{ConstructGridElements()}{ConstructGridElements()}}
+{\footnotesize\ttfamily const string \& Chatroom\+Manager\+::\+Construct\+Grid\+Elements (\begin{DoxyParamCaption}\item[{std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Forms the H\+T\+ML representation of the grid of chatrooms on front page. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & string to store H\+T\+ML representation to. Passed by reference. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const reference to H\+T\+ML representation string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroomManager_a7104e06e777268f2f1dfdcd4dd532d4f}\label{classChatroomManager_a7104e06e777268f2f1dfdcd4dd532d4f}} 
+\index{ChatroomManager@{ChatroomManager}!CreateRoom@{CreateRoom}}
+\index{CreateRoom@{CreateRoom}!ChatroomManager@{ChatroomManager}}
+\doxysubsubsection{\texorpdfstring{CreateRoom()}{CreateRoom()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{classChatroom}{Chatroom}} $>$ Chatroom\+Manager\+::\+Create\+Room (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{host\+Cookie }\end{DoxyParamCaption})}
+
+
+
+Creates a new room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em host\+Cookie} & Cookie associated with user trying to create a room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared\+\_\+ptr to the created room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroomManager_a0b47c52f712e2d2037f162faab5ef08f}\label{classChatroomManager_a0b47c52f712e2d2037f162faab5ef08f}} 
+\index{ChatroomManager@{ChatroomManager}!GetChatroom@{GetChatroom}}
+\index{GetChatroom@{GetChatroom}!ChatroomManager@{ChatroomManager}}
+\doxysubsubsection{\texorpdfstring{GetChatroom()}{GetChatroom()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classChatroom}{Chatroom}}$>$ Chatroom\+Manager\+::\+Get\+Chatroom (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the chatroom with associated id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Room id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared\+\_\+ptr to the \mbox{\hyperlink{classChatroom}{Chatroom}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classChatroomManager_ae58377f55ded81217f7b0b0d50a6e9cf}\label{classChatroomManager_ae58377f55ded81217f7b0b0d50a6e9cf}} 
+\index{ChatroomManager@{ChatroomManager}!Instance@{Instance}}
+\index{Instance@{Instance}!ChatroomManager@{ChatroomManager}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} \& Chatroom\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} /// Allows access to a singular instance of \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classChatroomManager}{Chatroom\+Manager}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chatroom\+Manager.\+h\item 
+Chatroom\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,94 @@
+\hypertarget{classSongManager}{}\doxysection{Song\+Manager Class Reference}
+\label{classSongManager}\index{SongManager@{SongManager}}
+
+
+Manages the Song uploads of the app.  
+
+
+
+
+{\ttfamily \#include $<$Song\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Song\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSongManager_aa0ea427341fb75754217e97ed021b3b0}\label{classSongManager_aa0ea427341fb75754217e97ed021b3b0}} 
+\mbox{\hyperlink{classSongManager_aa0ea427341fb75754217e97ed021b3b0}{Song\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classSongManager}{Song\+Manager}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSongManager_a8a80c8c67eeed2284b5509f7e5acceb7}\label{classSongManager_a8a80c8c67eeed2284b5509f7e5acceb7}} 
+\mbox{\hyperlink{classSongManager_a8a80c8c67eeed2284b5509f7e5acceb7}{$\sim$\+Song\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classSongManager}{Song\+Manager}} object and does any necessary cleanup. Removes all songs in the song directory that were uploaded during the current run of the program. Leaves default\+\_\+song.\+mp3 alone. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSongManager_a78598278b3503bf7319bf3ef2b058f03}{Add\+Song}} (std\+::string song\+Name)
+\begin{DoxyCompactList}\small\item\em Log that a song has been uploaded. Keeps track of uploaded songs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSongManager}{Song\+Manager}} \& \mbox{\hyperlink{classSongManager_af719b618257803108ba5afd783cc935b}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classSongManager}{Song\+Manager}} Allows access to a singular instance of \mbox{\hyperlink{classSongManager}{Song\+Manager}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSongManager_a6df1dae864fef154ae5ba719d2ba95d2}\label{classSongManager_a6df1dae864fef154ae5ba719d2ba95d2}} 
+const std\+::string {\bfseries S\+O\+N\+G\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY} \{ \char`\"{}songs/\char`\"{} \}
+\item 
+\mbox{\Hypertarget{classSongManager_a2dcde54f7f1cf75c4b0f48883e9e5150}\label{classSongManager_a2dcde54f7f1cf75c4b0f48883e9e5150}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+song\+Names} \{ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSongManager_a37922f4a8a4b3330487814880c3cdab4}\label{classSongManager_a37922f4a8a4b3330487814880c3cdab4}} 
+static \mbox{\hyperlink{classSongManager}{Song\+Manager}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the Song uploads of the app. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSongManager_a78598278b3503bf7319bf3ef2b058f03}\label{classSongManager_a78598278b3503bf7319bf3ef2b058f03}} 
+\index{SongManager@{SongManager}!AddSong@{AddSong}}
+\index{AddSong@{AddSong}!SongManager@{SongManager}}
+\doxysubsubsection{\texorpdfstring{AddSong()}{AddSong()}}
+{\footnotesize\ttfamily int Song\+Manager\+::\+Add\+Song (\begin{DoxyParamCaption}\item[{std\+::string}]{song\+Name }\end{DoxyParamCaption})}
+
+
+
+Log that a song has been uploaded. Keeps track of uploaded songs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Name} & Name of the song that was uploaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSongManager_af719b618257803108ba5afd783cc935b}\label{classSongManager_af719b618257803108ba5afd783cc935b}} 
+\index{SongManager@{SongManager}!Instance@{Instance}}
+\index{Instance@{Instance}!SongManager@{SongManager}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSongManager}{Song\+Manager}} \& Song\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classSongManager}{Song\+Manager}} Allows access to a singular instance of \mbox{\hyperlink{classSongManager}{Song\+Manager}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classSongManager}{Song\+Manager}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Song\+Manager.\+h\item 
+Song\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -17,11 +17,11 @@ CookieDB::CookieDB(const string& tableName)
 {
     if (SQLITE_OK == sqlite3_open(DB_PATH, &_dbObject))
     {
-        cout << "Database successfully opened. Table: " + _tableName + '\n';
+        // cout << "Database successfully opened. Table: " + _tableName + '\n';
     }
     else
     {
-        cout << "Database could not be opened.";
+        // cout << "Database could not be opened.";
         throw "Database could not be opened.";
     }
 
@@ -31,7 +31,7 @@ CookieDB::CookieDB(const string& tableName)
 CookieDB::~CookieDB()
 {
     sqlite3_close(_dbObject);
-    cout << "Cookie database successfully closed.\n";
+    // cout << "Cookie database successfully closed.\n";
 }
 
 int CookieDB::AddSession(const std::string& username, const std::string& cookie)

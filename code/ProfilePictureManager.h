@@ -11,20 +11,17 @@
 
 #include <iostream>
 #include <string>
-// #include <map>
-// #include <utility>
 #include <memory>
 
 #include "ImageDB.h"
 
 /// @brief Manages Profile Picture access for users.
-/// Manages Profile Picture access for users.
 /// @author Balaaj Arbab
 class ProfilePictureManager
 {
 public:
     /// @brief Singleton design pattern for ProfilePictureManager.
-    /// Allows access to a singular instance of the ProfilePictureManager across the project.
+    /// Allows access to a singular instance of ProfilePictureManager across the project.
     /// @return A reference to the instance of ProfilePictureManager.
     static ProfilePictureManager& Instance();
 
@@ -39,14 +36,12 @@ public:
     int AddNewUser(const std::string& username);
 
     /// @brief Updates the profile pic URL stored for the given user in the image database table.
-    ///  Updates the profile pic URL stored for the given user in the image database table.
     /// @param username The name of the user to update.
     /// @param url The URL of the new image.
     /// @return 1 if the operation was successful, not 1 if not.
     int UpdateProfilePic(const std::string& username, const std::string& url);
 
     /// @brief Gets the URL of the image associated with the given user.
-    /// Gets the URL of the image associated with the given user.
     /// @param username The name of the user whose profile picture to get.
     /// @return The URL of the profile picture for the user.
     std::string GetUserProfilePic(const std::string& username);

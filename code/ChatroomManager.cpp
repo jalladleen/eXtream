@@ -87,7 +87,7 @@ string ChatroomManager::ConstructGridElement(shared_ptr<Chatroom> room)
     gridElement += to_string(room->GetID());
     gridElement += "\"><button type=\"submit\">Join</button></form></div></div>";
 
-    cout << gridElement << '\n';
+    // cout << gridElement << '\n';
 
     return gridElement;
 }

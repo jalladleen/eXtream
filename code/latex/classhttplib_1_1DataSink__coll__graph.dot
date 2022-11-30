@@ -1,0 +1,12 @@
+digraph "httplib::DataSink"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="httplib::DataSink",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sb_" ];
+  Node2 [label="httplib::DataSink::\ldata_sink_streambuf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhttplib_1_1DataSink_1_1data__sink__streambuf.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="std::streambuf",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sink_" ];
+}

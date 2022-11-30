@@ -1,0 +1,96 @@
+\hypertarget{classCreateAccount}{}\doxysection{Create\+Account Class Reference}
+\label{classCreateAccount}\index{CreateAccount@{CreateAccount}}
+
+
+Account creating functionality.  
+
+
+
+
+{\ttfamily \#include $<$Create\+Account.\+h$>$}
+
+
+
+Collaboration diagram for Create\+Account\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCreateAccount_a7d80c3465040823a81e62719c9c49b54}{Create}} (std\+::string username, std\+::string password) const
+\begin{DoxyCompactList}\small\item\em Inserts a new user into the database. Inserts a new user into the database with specified username and password, which is encrypted before insertion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classCreateAccount}{Create\+Account}} \& \mbox{\hyperlink{classCreateAccount_a520c3f17c12273b93ddf9633d6eef722}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classCreateAccount}{Create\+Account}}. Allows access to a singular instance of \mbox{\hyperlink{classCreateAccount}{Create\+Account}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreateAccount_a98107adb6278868f7f6b145ec3cc9349}\label{classCreateAccount_a98107adb6278868f7f6b145ec3cc9349}} 
+{\bfseries Create\+Account} (const \mbox{\hyperlink{classCreateAccount}{Create\+Account}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classCreateAccount_a5ea8b30c9945b98c555924b25d1dbe94}\label{classCreateAccount_a5ea8b30c9945b98c555924b25d1dbe94}} 
+\mbox{\hyperlink{classCreateAccount}{Create\+Account}} \& {\bfseries operator=} (const \mbox{\hyperlink{classCreateAccount}{Create\+Account}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreateAccount_a18b3d34caab56b08f5c27d0f17774e49}\label{classCreateAccount_a18b3d34caab56b08f5c27d0f17774e49}} 
+const std\+::string {\bfseries U\+S\+E\+R\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}logintable\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCreateAccount_a35d1579beb2694c59f40d9ce66eb29ec}\label{classCreateAccount_a35d1579beb2694c59f40d9ce66eb29ec}} 
+static const \mbox{\hyperlink{classCreateAccount}{Create\+Account}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Account creating functionality. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCreateAccount_a7d80c3465040823a81e62719c9c49b54}\label{classCreateAccount_a7d80c3465040823a81e62719c9c49b54}} 
+\index{CreateAccount@{CreateAccount}!Create@{Create}}
+\index{Create@{Create}!CreateAccount@{CreateAccount}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily int Create\+Account\+::\+Create (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{password }\end{DoxyParamCaption}) const}
+
+
+
+Inserts a new user into the database. Inserts a new user into the database with specified username and password, which is encrypted before insertion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Username of the new user. \\
+\hline
+{\em password} & Password of the new user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCreateAccount_a520c3f17c12273b93ddf9633d6eef722}\label{classCreateAccount_a520c3f17c12273b93ddf9633d6eef722}} 
+\index{CreateAccount@{CreateAccount}!Instance@{Instance}}
+\index{Instance@{Instance}!CreateAccount@{CreateAccount}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCreateAccount}{Create\+Account}} \& Create\+Account\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classCreateAccount}{Create\+Account}}. Allows access to a singular instance of \mbox{\hyperlink{classCreateAccount}{Create\+Account}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classCreateAccount}{Create\+Account}}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Create\+Account.\+h\item 
+Create\+Account.\+cpp\end{DoxyCompactItemize}

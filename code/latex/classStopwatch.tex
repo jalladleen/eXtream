@@ -1,0 +1,78 @@
+\hypertarget{classStopwatch}{}\doxysection{Stopwatch Class Reference}
+\label{classStopwatch}\index{Stopwatch@{Stopwatch}}
+
+
+A class to mimic \mbox{\hyperlink{classStopwatch}{Stopwatch}} functionality from System.\+Diagnostics in C\#/.N\+ET. Used in the keeping of song time in chatrooms. \href{https://github.com/BalaajArbab/Stopwatch}{\texttt{ https\+://github.\+com/\+Balaaj\+Arbab/\+Stopwatch}}.  
+
+
+
+
+{\ttfamily \#include $<$Stopwatch.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStopwatch_a628b5ebeed5df065dd847e68fb6336cf}\label{classStopwatch_a628b5ebeed5df065dd847e68fb6336cf}} 
+\mbox{\hyperlink{classStopwatch_a628b5ebeed5df065dd847e68fb6336cf}{Stopwatch}} ()
+\begin{DoxyCompactList}\small\item\em Initializes \mbox{\hyperlink{classStopwatch}{Stopwatch}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a9f7550a0b848af2f25cfb7e427b8a0af}\label{classStopwatch_a9f7550a0b848af2f25cfb7e427b8a0af}} 
+bool \mbox{\hyperlink{classStopwatch_a9f7550a0b848af2f25cfb7e427b8a0af}{Is\+Running}} ()
+\begin{DoxyCompactList}\small\item\em Queries whether the stopwatch is currently running (.Start was called). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_afd540cbf012b062178d9295d8d79de97}\label{classStopwatch_afd540cbf012b062178d9295d8d79de97}} 
+bool \mbox{\hyperlink{classStopwatch_afd540cbf012b062178d9295d8d79de97}{Start}} ()
+\begin{DoxyCompactList}\small\item\em Initiates an interval of the stopwatch. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_aebf86978d06f326cce58d64432cc2e78}\label{classStopwatch_aebf86978d06f326cce58d64432cc2e78}} 
+bool \mbox{\hyperlink{classStopwatch_aebf86978d06f326cce58d64432cc2e78}{Stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the stopwatch, creating a closed interval from the start point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a1ad2e74402792554916824389bd6c446}\label{classStopwatch_a1ad2e74402792554916824389bd6c446}} 
+double \mbox{\hyperlink{classStopwatch_a1ad2e74402792554916824389bd6c446}{Elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Returns elapsed time (in seconds) of currently running interval (After starting the stopwatch, without stopping it.) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a66f6861c5e6a99868d81cb6662b1e526}\label{classStopwatch_a66f6861c5e6a99868d81cb6662b1e526}} 
+double \mbox{\hyperlink{classStopwatch_a66f6861c5e6a99868d81cb6662b1e526}{Last\+Elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Returns elapsed time (in seconds) of previous completed interval. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a9b93891c50958c742b9ae9bdfb669c62}\label{classStopwatch_a9b93891c50958c742b9ae9bdfb669c62}} 
+double \mbox{\hyperlink{classStopwatch_a9b93891c50958c742b9ae9bdfb669c62}{Get\+Interval\+Elapsed}} (std\+::int32\+\_\+t interval\+Index)
+\begin{DoxyCompactList}\small\item\em Returns the elapsed time (in seconds) of the specified interval (index of intervals starts at 0). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a09d33d814745760d00a2a74f160a7c14}\label{classStopwatch_a09d33d814745760d00a2a74f160a7c14}} 
+double \mbox{\hyperlink{classStopwatch_a09d33d814745760d00a2a74f160a7c14}{Total\+Elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Returns elapsed time (in seconds) of all intervals + the currently running interval if stopwatch is running. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStopwatch_a6baf4754288ed0a3f0dc9fd1b5abe7c2}\label{classStopwatch_a6baf4754288ed0a3f0dc9fd1b5abe7c2}} 
+void \mbox{\hyperlink{classStopwatch_a6baf4754288ed0a3f0dc9fd1b5abe7c2}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Erases all intervals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStopwatch_aef94a5afd8884dfbbf5a8d150ce1d3a1}\label{classStopwatch_aef94a5afd8884dfbbf5a8d150ce1d3a1}} 
+using {\bfseries clock\+\_\+type} = std\+::chrono\+::steady\+\_\+clock
+\item 
+\mbox{\Hypertarget{classStopwatch_a049e2544b3e7501b7c78edf3c129c16c}\label{classStopwatch_a049e2544b3e7501b7c78edf3c129c16c}} 
+using {\bfseries second\+\_\+type} = std\+::chrono\+::duration$<$ double $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStopwatch_af3663284420232108c8ccca3f7545d79}\label{classStopwatch_af3663284420232108c8ccca3f7545d79}} 
+std\+::vector$<$ std\+::chrono\+::time\+\_\+point$<$ clock\+\_\+type $>$ $>$ {\bfseries m\+\_\+start\+Points}
+\item 
+\mbox{\Hypertarget{classStopwatch_a087988fb1e8bb44300d96ccbf2918f9f}\label{classStopwatch_a087988fb1e8bb44300d96ccbf2918f9f}} 
+std\+::vector$<$ std\+::chrono\+::time\+\_\+point$<$ clock\+\_\+type $>$ $>$ {\bfseries m\+\_\+stop\+Points}
+\item 
+\mbox{\Hypertarget{classStopwatch_aa20b836ed250447b66ca882769c0d21d}\label{classStopwatch_aa20b836ed250447b66ca882769c0d21d}} 
+std\+::int32\+\_\+t {\bfseries m\+\_\+intervals} \{ 0 \}
+\item 
+\mbox{\Hypertarget{classStopwatch_ad723f539f8303be76d4ac3738f346987}\label{classStopwatch_ad723f539f8303be76d4ac3738f346987}} 
+bool {\bfseries m\+\_\+is\+Running} \{ false \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to mimic \mbox{\hyperlink{classStopwatch}{Stopwatch}} functionality from System.\+Diagnostics in C\#/.N\+ET. Used in the keeping of song time in chatrooms. \href{https://github.com/BalaajArbab/Stopwatch}{\texttt{ https\+://github.\+com/\+Balaaj\+Arbab/\+Stopwatch}}. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Stopwatch.\+h\end{DoxyCompactItemize}

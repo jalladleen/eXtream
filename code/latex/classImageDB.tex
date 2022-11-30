@@ -1,0 +1,131 @@
+\hypertarget{classImageDB}{}\doxysection{Image\+DB Class Reference}
+\label{classImageDB}\index{ImageDB@{ImageDB}}
+
+
+Provides access to the Image Table for the app.  
+
+
+
+
+{\ttfamily \#include $<$Image\+D\+B.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImageDB_a777c0ad503add911e2d0cce04912e449}{Image\+DB}} (const std\+::string \&table\+Name)
+\begin{DoxyCompactList}\small\item\em Initializes the object and acquires a database handle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImageDB_a0c6377c61c2fc0e191eeb1c4d30cc5f1}\label{classImageDB_a0c6377c61c2fc0e191eeb1c4d30cc5f1}} 
+\mbox{\hyperlink{classImageDB_a0c6377c61c2fc0e191eeb1c4d30cc5f1}{$\sim$\+Image\+DB}} ()
+\begin{DoxyCompactList}\small\item\em Safely closes the Database handle and cleans up. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classImageDB_ab66c1102045332c3e12d4242d3be1261}{Add\+New\+User}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Adds a new user to the image database table with the default profile pic U\+RL. Adds a new user to the image database table with the default profile pic U\+RL. Used when a new account is created. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classImageDB_a7bf888871c6ecc0ebfd896877d24ad57}{Update\+Profile\+Pic}} (const std\+::string \&username, const std\+::string \&url)
+\begin{DoxyCompactList}\small\item\em Updates the profile pic U\+RL stored for the given user in the image database table. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classImageDB_a7ea15b075fd1dc8b354529f56fb20494}{Get\+User\+Profile\+Pic}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Gets the U\+RL of the image associated with the given user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImageDB_af96831530df17159ccae1c98ee3a0b54}\label{classImageDB_af96831530df17159ccae1c98ee3a0b54}} 
+int {\bfseries table\+Setup} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImageDB_a073eca0625dc4488c1afde93f6347307}\label{classImageDB_a073eca0625dc4488c1afde93f6347307}} 
+const std\+::string {\bfseries \+\_\+table\+Name}
+\item 
+\mbox{\Hypertarget{classImageDB_a07f66c8e8c466e25475130deb6cfb0c0}\label{classImageDB_a07f66c8e8c466e25475130deb6cfb0c0}} 
+sqlite3 $\ast$ {\bfseries \+\_\+db\+Object}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the Image Table for the app. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classImageDB_a777c0ad503add911e2d0cce04912e449}\label{classImageDB_a777c0ad503add911e2d0cce04912e449}} 
+\index{ImageDB@{ImageDB}!ImageDB@{ImageDB}}
+\index{ImageDB@{ImageDB}!ImageDB@{ImageDB}}
+\doxysubsubsection{\texorpdfstring{ImageDB()}{ImageDB()}}
+{\footnotesize\ttfamily Image\+D\+B\+::\+Image\+DB (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{table\+Name }\end{DoxyParamCaption})}
+
+
+
+Initializes the object and acquires a database handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Name} & Table name of the Image table. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classImageDB_ab66c1102045332c3e12d4242d3be1261}\label{classImageDB_ab66c1102045332c3e12d4242d3be1261}} 
+\index{ImageDB@{ImageDB}!AddNewUser@{AddNewUser}}
+\index{AddNewUser@{AddNewUser}!ImageDB@{ImageDB}}
+\doxysubsubsection{\texorpdfstring{AddNewUser()}{AddNewUser()}}
+{\footnotesize\ttfamily int Image\+D\+B\+::\+Add\+New\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Adds a new user to the image database table with the default profile pic U\+RL. Adds a new user to the image database table with the default profile pic U\+RL. Used when a new account is created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the new user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classImageDB_a7ea15b075fd1dc8b354529f56fb20494}\label{classImageDB_a7ea15b075fd1dc8b354529f56fb20494}} 
+\index{ImageDB@{ImageDB}!GetUserProfilePic@{GetUserProfilePic}}
+\index{GetUserProfilePic@{GetUserProfilePic}!ImageDB@{ImageDB}}
+\doxysubsubsection{\texorpdfstring{GetUserProfilePic()}{GetUserProfilePic()}}
+{\footnotesize\ttfamily string Image\+D\+B\+::\+Get\+User\+Profile\+Pic (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Gets the U\+RL of the image associated with the given user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the user whose profile picture to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The U\+RL of the profile picture for the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classImageDB_a7bf888871c6ecc0ebfd896877d24ad57}\label{classImageDB_a7bf888871c6ecc0ebfd896877d24ad57}} 
+\index{ImageDB@{ImageDB}!UpdateProfilePic@{UpdateProfilePic}}
+\index{UpdateProfilePic@{UpdateProfilePic}!ImageDB@{ImageDB}}
+\doxysubsubsection{\texorpdfstring{UpdateProfilePic()}{UpdateProfilePic()}}
+{\footnotesize\ttfamily int Image\+D\+B\+::\+Update\+Profile\+Pic (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{const std\+::string \&}]{url }\end{DoxyParamCaption})}
+
+
+
+Updates the profile pic U\+RL stored for the given user in the image database table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the user to update. \\
+\hline
+{\em url} & The U\+RL of the new image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Image\+D\+B.\+h\item 
+Image\+D\+B.\+cpp\end{DoxyCompactItemize}

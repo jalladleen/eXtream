@@ -1,0 +1,140 @@
+\hypertarget{classProfilePictureManager}{}\doxysection{Profile\+Picture\+Manager Class Reference}
+\label{classProfilePictureManager}\index{ProfilePictureManager@{ProfilePictureManager}}
+
+
+Manages Profile Picture access for users.  
+
+
+
+
+{\ttfamily \#include $<$Profile\+Picture\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Profile\+Picture\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProfilePictureManager_a54322d990fa86326eca8f2c752a9afe1}\label{classProfilePictureManager_a54322d990fa86326eca8f2c752a9afe1}} 
+\mbox{\hyperlink{classProfilePictureManager_a54322d990fa86326eca8f2c752a9afe1}{$\sim$\+Profile\+Picture\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up. Cleans up. ~\newline
+ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProfilePictureManager_ab122d76d3529e80f4ec57b79d47141ad}{Add\+New\+User}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Adds a new user to the image database table with the default profile pic U\+RL. Adds a new user to the image database table with the default profile pic U\+RL. Used when a new account is created. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProfilePictureManager_a8c71f8d092c474309b4f6f9afbf28df8}{Update\+Profile\+Pic}} (const std\+::string \&username, const std\+::string \&url)
+\begin{DoxyCompactList}\small\item\em Updates the profile pic U\+RL stored for the given user in the image database table. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProfilePictureManager_a7cb3e73baf427c7feb1661b721b08672}{Get\+User\+Profile\+Pic}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Gets the U\+RL of the image associated with the given user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} \& \mbox{\hyperlink{classProfilePictureManager_a587992261acebc97f35b0a139719a9a1}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}}. Allows access to a singular instance of \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProfilePictureManager_a81b34acbb6a31763f1592310dfffebc4}\label{classProfilePictureManager_a81b34acbb6a31763f1592310dfffebc4}} 
+{\bfseries Profile\+Picture\+Manager} (const \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classProfilePictureManager_afe7fdfdb9811885ae86ae3c41bd5f9a8}\label{classProfilePictureManager_afe7fdfdb9811885ae86ae3c41bd5f9a8}} 
+\mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProfilePictureManager_a2e168a555b4d044de11f38ff37f41492}\label{classProfilePictureManager_a2e168a555b4d044de11f38ff37f41492}} 
+const std\+::string {\bfseries P\+R\+O\+F\+I\+L\+E\+P\+I\+C\+T\+U\+R\+E\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}images\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProfilePictureManager_a2579c5826f5d720bce288b7436aa6f8b}\label{classProfilePictureManager_a2579c5826f5d720bce288b7436aa6f8b}} 
+static \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages Profile Picture access for users. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProfilePictureManager_ab122d76d3529e80f4ec57b79d47141ad}\label{classProfilePictureManager_ab122d76d3529e80f4ec57b79d47141ad}} 
+\index{ProfilePictureManager@{ProfilePictureManager}!AddNewUser@{AddNewUser}}
+\index{AddNewUser@{AddNewUser}!ProfilePictureManager@{ProfilePictureManager}}
+\doxysubsubsection{\texorpdfstring{AddNewUser()}{AddNewUser()}}
+{\footnotesize\ttfamily int Profile\+Picture\+Manager\+::\+Add\+New\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Adds a new user to the image database table with the default profile pic U\+RL. Adds a new user to the image database table with the default profile pic U\+RL. Used when a new account is created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the new user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProfilePictureManager_a7cb3e73baf427c7feb1661b721b08672}\label{classProfilePictureManager_a7cb3e73baf427c7feb1661b721b08672}} 
+\index{ProfilePictureManager@{ProfilePictureManager}!GetUserProfilePic@{GetUserProfilePic}}
+\index{GetUserProfilePic@{GetUserProfilePic}!ProfilePictureManager@{ProfilePictureManager}}
+\doxysubsubsection{\texorpdfstring{GetUserProfilePic()}{GetUserProfilePic()}}
+{\footnotesize\ttfamily string Profile\+Picture\+Manager\+::\+Get\+User\+Profile\+Pic (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Gets the U\+RL of the image associated with the given user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the user whose profile picture to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The U\+RL of the profile picture for the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProfilePictureManager_a587992261acebc97f35b0a139719a9a1}\label{classProfilePictureManager_a587992261acebc97f35b0a139719a9a1}} 
+\index{ProfilePictureManager@{ProfilePictureManager}!Instance@{Instance}}
+\index{Instance@{Instance}!ProfilePictureManager@{ProfilePictureManager}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} \& Profile\+Picture\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}}. Allows access to a singular instance of \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classProfilePictureManager}{Profile\+Picture\+Manager}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classProfilePictureManager_a8c71f8d092c474309b4f6f9afbf28df8}\label{classProfilePictureManager_a8c71f8d092c474309b4f6f9afbf28df8}} 
+\index{ProfilePictureManager@{ProfilePictureManager}!UpdateProfilePic@{UpdateProfilePic}}
+\index{UpdateProfilePic@{UpdateProfilePic}!ProfilePictureManager@{ProfilePictureManager}}
+\doxysubsubsection{\texorpdfstring{UpdateProfilePic()}{UpdateProfilePic()}}
+{\footnotesize\ttfamily int Profile\+Picture\+Manager\+::\+Update\+Profile\+Pic (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{const std\+::string \&}]{url }\end{DoxyParamCaption})}
+
+
+
+Updates the profile pic U\+RL stored for the given user in the image database table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The name of the user to update. \\
+\hline
+{\em url} & The U\+RL of the new image. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Profile\+Picture\+Manager.\+h\item 
+Profile\+Picture\+Manager.\+cpp\end{DoxyCompactItemize}

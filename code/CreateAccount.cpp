@@ -32,6 +32,7 @@ int CreateAccount::Create(string username, string password) const
     if (statusCode == 1)
     {
         ProfilePictureManager::Instance().AddNewUser(username);
+        cout << "New user " << username << "created!\n";
     }
 
     return statusCode;

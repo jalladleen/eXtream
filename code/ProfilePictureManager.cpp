@@ -38,6 +38,8 @@ int ProfilePictureManager::UpdateProfilePic(const string& username, const string
 {
     ImageDB imageDB{ PROFILEPICTURE_TABLE_NAME };
 
+    cout << username << " just updated their profile picture!\n";
+
     return imageDB.UpdateProfilePic(username, url);
 
 }

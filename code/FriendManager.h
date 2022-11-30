@@ -17,13 +17,12 @@
 #include "ProfilePictureManager.h"
 
 /// @brief Manages Friend connections between users.
-/// Manages Friend connections between users.
 /// @author Balaaj Arbab
 class FriendManager
 {
 public:
     /// @brief Singleton design pattern for FriendManager.
-    /// /// Allows access to a singular instance FriendManager across the project.
+    /// Allows access to a singular instance FriendManager across the project.
     /// @return A reference to the instance of FriendManager.
     static FriendManager& Instance();
 
@@ -38,7 +37,6 @@ public:
     int AddFriend(const std::string& username, const std::string& friendUsername);
 
     /// @brief Returns the username of all usernames that are friends with the input user.
-    /// Returns the username of all usernames that are friends with the input user.
     /// @param username The input user.
     /// @return A shared_ptr to a list of friend usernames.
     std::shared_ptr<std::vector<std::string>> GetAllFriends(const std::string& username);

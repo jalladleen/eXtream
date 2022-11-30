@@ -39,7 +39,6 @@ public:
     Chatroom(int roomID, const std::string& hostCookie, const std::string& hostUsername);
 
     /// @brief Destroys a chatroom and does necessary clean up.
-    /// Destroys a chatroom and does necessary clean up.
     ~Chatroom();
 
     /// @brief Adds a user who has tried to join the room.
@@ -61,47 +60,38 @@ public:
     std::shared_ptr<std::vector<std::string>> GetUsernames(bool includeHost = false);
 
     /// @brief Gets the room's id.
-    /// Gets the room's id.
     /// @return Room id integer.
     int GetID(){ return _roomID; }
 
     /// @brief Gets cookie associated with room creator.
-    /// Gets cookie associated with room creator.
     /// @return Host cookie.
     std::string GetHostCookie() { return _hostCookie; }
 
     /// @brief Gets username associated with room creator.
-    /// Gets username associated with room creator.
     /// @return Host username.
     std::string GetHostUsername() { return _hostUsername; }
 
     /// @brief Currently connected user count.
-    /// Currently connected user count.
     /// @return User count integer.
     int GetUserCount() { return _connectedCookies.size() + 1; }
 
     /// @brief Creates the HTML representing the list of users in the room.
-    /// Creates the HTML representing the list of users in the room.
     /// @param str a reference to a string to be used to store the HTML text.
     void FormUserHTML(std::string& str);
 
     /// @brief Gets the current song of the room.
-    /// Gets the current song of the room.
     /// @return Name of the current song of the room.
     std::string GetCurrentSongName() { return _currentSongName; }
 
     /// @brief Gets the current song uploader of the room.
-    /// Gets the current song uploader of the room.
     /// @return Name of the current song uploader of the room.
     std::string GetCurrentSongUploader() { return _currentSongUploader; }
 
     /// @brief Sets the current song of the room.
-    /// Sets the current song of the room.
     /// @param newSong name of the new song.
     void SetCurrentSongName(std::string newSong) { _currentSongName = newSong; }
 
     /// @brief Sets the current song uploader of the room.
-    /// Sets the current song uploader of the room.
     /// @param newUploader name of the new uploader.
     void SetCurrentSongUploader(std::string newUploader) { _currentSongUploader = newUploader; }  
 
@@ -115,12 +105,10 @@ public:
     };
 
     /// @brief Returns the playback state of the room.
-    /// Returns the playback state of the room.
     /// @return The playback state of the room.
     Chatroom::State GetState() { return _state; }
 
     /// @brief Returns the current song time.
-    /// Returns the current song time.
     /// @return The current song time.
     double GetSongTime() { return _songStartTime + _songTimer.TotalElapsed(); };
 
@@ -130,7 +118,6 @@ public:
     void Play(double startTime);
 
     /// @brief Pauses playback.
-    ///  Pauses playback.
     void Pause();
 
     /// @brief Resets the state of playback.
@@ -138,11 +125,9 @@ public:
     void Reset();
 
     /// @brief Flips the visibility of the room.
-    ///  Flips the visibility of the room.
     void ToggleVisibility() { _visible = !_visible; }
 
     /// @brief Whether the room is visible or not.
-    ///  Whether the room is visible or not.
     /// @return Whether the room is visible or not.
     bool IsVisible() { return _visible; }
 

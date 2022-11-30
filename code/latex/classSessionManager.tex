@@ -1,0 +1,197 @@
+\hypertarget{classSessionManager}{}\doxysection{Session\+Manager Class Reference}
+\label{classSessionManager}\index{SessionManager@{SessionManager}}
+
+
+Manages active sessions for connected users.  
+
+
+
+
+{\ttfamily \#include $<$Session\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Session\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSessionManager_acf9860a47b8c54e5f13210715e784621}\label{classSessionManager_acf9860a47b8c54e5f13210715e784621}} 
+\mbox{\hyperlink{classSessionManager_acf9860a47b8c54e5f13210715e784621}{$\sim$\+Session\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up. Destroy the associated cookie table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSessionManager_ade9a1dc738e08ded2e744c161fc7c1d2}{Add\+Session}} (const std\+::string \&session\+ID, const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Adds a session to the session database. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSessionManager_a41e2ecda3c0ef8819a7015945629378a}{Remove\+Session\+Via\+Session\+ID}} (const std\+::string \&session\+ID)
+\begin{DoxyCompactList}\small\item\em Removes a session from the DB via cookie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSessionManager_a4cc64e838a790bfd2237ac8928630228}{Remove\+Session\+Via\+Username}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Removes a session from the DB via username. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSessionManager_a3db3c23a2ebc0831dd305d8194339920}{Get\+User}} (const std\+::string \&session\+ID)
+\begin{DoxyCompactList}\small\item\em Gets the username associated with the user with given cookie. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSessionManager_aacc823d8302e3d11b4ae587df0a2ad9b}{Key\+Exists}} (const std\+::string \&session\+ID)
+\begin{DoxyCompactList}\small\item\em Checks whether a given session\+ID exists in the DB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSessionManager_abe80f9c4cc12d4e6a963a772fc00c42a}\label{classSessionManager_abe80f9c4cc12d4e6a963a772fc00c42a}} 
+void \mbox{\hyperlink{classSessionManager_abe80f9c4cc12d4e6a963a772fc00c42a}{Print\+Sessions}} () const
+\begin{DoxyCompactList}\small\item\em Displays a string representation of all the existing sessions. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSessionManager_abfeed977fe32069ab3441e1072b5096a}{New\+Distinct\+Cookie}} ()
+\begin{DoxyCompactList}\small\item\em Generates new unique cookie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSessionManager}{Session\+Manager}} \& \mbox{\hyperlink{classSessionManager_a7d4a5d5301d76c97e9fc80d3ff0a1ec1}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton design pattern for \mbox{\hyperlink{classSessionManager}{Session\+Manager}}. Allows access to a singular instance of \mbox{\hyperlink{classSessionManager}{Session\+Manager}} across the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSessionManager_ab82682c10235caa7e3de64a48d2a71d2}\label{classSessionManager_ab82682c10235caa7e3de64a48d2a71d2}} 
+{\bfseries Session\+Manager} (const \mbox{\hyperlink{classSessionManager}{Session\+Manager}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classSessionManager_aa15009e027e14d3ce87eab4e29512c3c}\label{classSessionManager_aa15009e027e14d3ce87eab4e29512c3c}} 
+\mbox{\hyperlink{classSessionManager}{Session\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{classSessionManager}{Session\+Manager}} \&other)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSessionManager_a246d2a26fb1fe2c584b5769fe5ce470d}\label{classSessionManager_a246d2a26fb1fe2c584b5769fe5ce470d}} 
+const std\+::string {\bfseries C\+O\+O\+K\+I\+E\+\_\+\+T\+A\+B\+L\+E\+\_\+\+N\+A\+ME} = \char`\"{}cookietable\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSessionManager_aa4d58724b72f9b3416fd548077e4248f}\label{classSessionManager_aa4d58724b72f9b3416fd548077e4248f}} 
+static \mbox{\hyperlink{classSessionManager}{Session\+Manager}} $\ast$ {\bfseries s\+\_\+instance} \{ nullptr \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages active sessions for connected users. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSessionManager_ade9a1dc738e08ded2e744c161fc7c1d2}\label{classSessionManager_ade9a1dc738e08ded2e744c161fc7c1d2}} 
+\index{SessionManager@{SessionManager}!AddSession@{AddSession}}
+\index{AddSession@{AddSession}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{AddSession()}{AddSession()}}
+{\footnotesize\ttfamily int Session\+Manager\+::\+Add\+Session (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{session\+ID,  }\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Adds a session to the session database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+ID} & Cookie to add. \\
+\hline
+{\em username} & Username associated with cookie. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_a3db3c23a2ebc0831dd305d8194339920}\label{classSessionManager_a3db3c23a2ebc0831dd305d8194339920}} 
+\index{SessionManager@{SessionManager}!GetUser@{GetUser}}
+\index{GetUser@{GetUser}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{GetUser()}{GetUser()}}
+{\footnotesize\ttfamily string Session\+Manager\+::\+Get\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{session\+ID }\end{DoxyParamCaption})}
+
+
+
+Gets the username associated with the user with given cookie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+ID} & Cookie string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Username of user with cookie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_a7d4a5d5301d76c97e9fc80d3ff0a1ec1}\label{classSessionManager_a7d4a5d5301d76c97e9fc80d3ff0a1ec1}} 
+\index{SessionManager@{SessionManager}!Instance@{Instance}}
+\index{Instance@{Instance}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSessionManager}{Session\+Manager}} \& Session\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton design pattern for \mbox{\hyperlink{classSessionManager}{Session\+Manager}}. Allows access to a singular instance of \mbox{\hyperlink{classSessionManager}{Session\+Manager}} across the project. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the instance of \mbox{\hyperlink{classSessionManager}{Session\+Manager}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_aacc823d8302e3d11b4ae587df0a2ad9b}\label{classSessionManager_aacc823d8302e3d11b4ae587df0a2ad9b}} 
+\index{SessionManager@{SessionManager}!KeyExists@{KeyExists}}
+\index{KeyExists@{KeyExists}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{KeyExists()}{KeyExists()}}
+{\footnotesize\ttfamily bool Session\+Manager\+::\+Key\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{session\+ID }\end{DoxyParamCaption})}
+
+
+
+Checks whether a given session\+ID exists in the DB. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+ID} & Cookie string to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_abfeed977fe32069ab3441e1072b5096a}\label{classSessionManager_abfeed977fe32069ab3441e1072b5096a}} 
+\index{SessionManager@{SessionManager}!NewDistinctCookie@{NewDistinctCookie}}
+\index{NewDistinctCookie@{NewDistinctCookie}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{NewDistinctCookie()}{NewDistinctCookie()}}
+{\footnotesize\ttfamily string Session\+Manager\+::\+New\+Distinct\+Cookie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates new unique cookie. 
+
+\begin{DoxyReturn}{Returns}
+The unique cookie. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_a41e2ecda3c0ef8819a7015945629378a}\label{classSessionManager_a41e2ecda3c0ef8819a7015945629378a}} 
+\index{SessionManager@{SessionManager}!RemoveSessionViaSessionID@{RemoveSessionViaSessionID}}
+\index{RemoveSessionViaSessionID@{RemoveSessionViaSessionID}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{RemoveSessionViaSessionID()}{RemoveSessionViaSessionID()}}
+{\footnotesize\ttfamily int Session\+Manager\+::\+Remove\+Session\+Via\+Session\+ID (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{session\+ID }\end{DoxyParamCaption})}
+
+
+
+Removes a session from the DB via cookie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em session\+ID} & Cookie string of the user whose session to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSessionManager_a4cc64e838a790bfd2237ac8928630228}\label{classSessionManager_a4cc64e838a790bfd2237ac8928630228}} 
+\index{SessionManager@{SessionManager}!RemoveSessionViaUsername@{RemoveSessionViaUsername}}
+\index{RemoveSessionViaUsername@{RemoveSessionViaUsername}!SessionManager@{SessionManager}}
+\doxysubsubsection{\texorpdfstring{RemoveSessionViaUsername()}{RemoveSessionViaUsername()}}
+{\footnotesize\ttfamily int Session\+Manager\+::\+Remove\+Session\+Via\+Username (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Removes a session from the DB via username. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & Username string of the user whose session to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if successful, -\/1 if not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Session\+Manager.\+h\item 
+Session\+Manager.\+cpp\end{DoxyCompactItemize}

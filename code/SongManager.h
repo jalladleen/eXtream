@@ -22,7 +22,6 @@
 #include "SessionManager.h"
 
 /// @brief Manages the Song uploads of the app.
-/// Manages the Song uploads of the app.
 /// @author Balaaj Arbab
 class SongManager
 {
@@ -33,7 +32,6 @@ public:
     static SongManager& Instance();
 
     /// @brief Constructs the SongManager.
-    /// Constructs the SongManager.
     SongManager();
 
     /// @brief Destroys the SongManager object and does any necessary cleanup.

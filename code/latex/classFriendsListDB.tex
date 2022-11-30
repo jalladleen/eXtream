@@ -1,0 +1,114 @@
+\hypertarget{classFriendsListDB}{}\doxysection{Friends\+List\+DB Class Reference}
+\label{classFriendsListDB}\index{FriendsListDB@{FriendsListDB}}
+
+
+Provides access to the Friends List Table for the app.  
+
+
+
+
+{\ttfamily \#include $<$Friends\+List\+D\+B.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFriendsListDB_a598471d87d71389eecfe18164abe71a2}{Friends\+List\+DB}} (const std\+::string \&table\+Name)
+\begin{DoxyCompactList}\small\item\em Initializes the object and acquires a database handle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFriendsListDB_adc616c5bad6563ea166c9d1e0d2970da}\label{classFriendsListDB_adc616c5bad6563ea166c9d1e0d2970da}} 
+\mbox{\hyperlink{classFriendsListDB_adc616c5bad6563ea166c9d1e0d2970da}{$\sim$\+Friends\+List\+DB}} ()
+\begin{DoxyCompactList}\small\item\em Safely closes the Database handle and cleans up. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classFriendsListDB_ae2ae38e3836f481f1270f913a2dca9a0}{Add\+Friend}} (const std\+::string \&username, const std\+::string \&friend\+Username)
+\begin{DoxyCompactList}\small\item\em Adds a friend relationship between 2 users. Adds a friend relationship between 2 users and stores it in the friends database table. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classFriendsListDB_ac81209ff2d0efb634a490023cbefef35}{Get\+All\+Friends}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Returns the username of all usernames that are friends with the input user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFriendsListDB_acce493aeee2004f64a2ceebdc026f1d1}\label{classFriendsListDB_acce493aeee2004f64a2ceebdc026f1d1}} 
+bool {\bfseries Relationship\+Exists} (const std\+::string \&username, const std\+::string \&friend\+Username)
+\item 
+\mbox{\Hypertarget{classFriendsListDB_ae50ab808278ad07323fc482c8fca74d7}\label{classFriendsListDB_ae50ab808278ad07323fc482c8fca74d7}} 
+int {\bfseries table\+Setup} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFriendsListDB_aba3f82b8f70a0b09fd08a0176d849407}\label{classFriendsListDB_aba3f82b8f70a0b09fd08a0176d849407}} 
+const std\+::string {\bfseries \+\_\+table\+Name}
+\item 
+\mbox{\Hypertarget{classFriendsListDB_a70d9ddb604f082a61e834b233e693fbb}\label{classFriendsListDB_a70d9ddb604f082a61e834b233e693fbb}} 
+sqlite3 $\ast$ {\bfseries \+\_\+db\+Object}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to the Friends List Table for the app. 
+
+\begin{DoxyAuthor}{Author}
+Balaaj Arbab 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFriendsListDB_a598471d87d71389eecfe18164abe71a2}\label{classFriendsListDB_a598471d87d71389eecfe18164abe71a2}} 
+\index{FriendsListDB@{FriendsListDB}!FriendsListDB@{FriendsListDB}}
+\index{FriendsListDB@{FriendsListDB}!FriendsListDB@{FriendsListDB}}
+\doxysubsubsection{\texorpdfstring{FriendsListDB()}{FriendsListDB()}}
+{\footnotesize\ttfamily Friends\+List\+D\+B\+::\+Friends\+List\+DB (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{table\+Name }\end{DoxyParamCaption})}
+
+
+
+Initializes the object and acquires a database handle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table\+Name} & Table name of the Friends List table. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFriendsListDB_ae2ae38e3836f481f1270f913a2dca9a0}\label{classFriendsListDB_ae2ae38e3836f481f1270f913a2dca9a0}} 
+\index{FriendsListDB@{FriendsListDB}!AddFriend@{AddFriend}}
+\index{AddFriend@{AddFriend}!FriendsListDB@{FriendsListDB}}
+\doxysubsubsection{\texorpdfstring{AddFriend()}{AddFriend()}}
+{\footnotesize\ttfamily int Friends\+List\+D\+B\+::\+Add\+Friend (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username,  }\item[{const std\+::string \&}]{friend\+Username }\end{DoxyParamCaption})}
+
+
+
+Adds a friend relationship between 2 users. Adds a friend relationship between 2 users and stores it in the friends database table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & first user \\
+\hline
+{\em friend\+Username} & The user to add as friend to first user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 is the operation was successful, not 1 if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFriendsListDB_ac81209ff2d0efb634a490023cbefef35}\label{classFriendsListDB_ac81209ff2d0efb634a490023cbefef35}} 
+\index{FriendsListDB@{FriendsListDB}!GetAllFriends@{GetAllFriends}}
+\index{GetAllFriends@{GetAllFriends}!FriendsListDB@{FriendsListDB}}
+\doxysubsubsection{\texorpdfstring{GetAllFriends()}{GetAllFriends()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ std\+::string $>$ $>$ Friends\+List\+D\+B\+::\+Get\+All\+Friends (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})}
+
+
+
+Returns the username of all usernames that are friends with the input user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & The input user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared\+\_\+ptr to a list of friend usernames. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Friends\+List\+D\+B.\+h\item 
+Friends\+List\+D\+B.\+cpp\end{DoxyCompactItemize}

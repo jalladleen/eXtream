@@ -12,13 +12,11 @@ using namespace std;
 using namespace httplib;
 
 /// @brief Helper method to print an incoming request to the console.
-/// Helper method to print an incoming request to the console.
 /// @param req 
 /// @author Balaaj Arbab
 static void PrintRequest(const Request& req);
 
 /// @brief Replaces the first occurence of a placeholder substring in a string, to an input string.
-/// Replaces the first occurence of a placeholder substring in a string, to an input string.
 /// @param s String to search for substring in.
 /// @param toReplace Substring to replace.
 /// @param replaceWith String to replace Substring with.
@@ -215,13 +213,13 @@ void AppServer::CreateInitialRoutes()
     auto room = ChatroomManager::Instance().CreateRoom(incomingCookie);
     int roomID = room->GetID(); 
 
-    cout << "/Rooms/" + to_string(room->GetID()) << "\n";
-
     this->svr.Get("/Rooms/" + to_string(room->GetID()), [roomID](const Request& reqp, Response& resp) {
 
         string cook = reqp.get_header_value("Cookie");
 
         auto room = ChatroomManager::Instance().GetChatroom(roomID);
+
+        string username = SessionManager::Instance().GetUser(cook);
         
         if (cook == room->GetHostCookie())
         {
@@ -229,7 +227,8 @@ void AppServer::CreateInitialRoutes()
         }
         else
         {
-            room->AddUser(cook, SessionManager::Instance().GetUser(cook)); 
+            room->AddUser(cook, username); 
+            cout << username << " just joined Room " << roomID << '\n';
         }
 
         string content = ReadHTMLFile("webpages/chatroom.html");
@@ -237,13 +236,10 @@ void AppServer::CreateInitialRoutes()
 
         room->FormUserHTML(users);
 
-        cout << "Room ID: " << roomID << '\n';
-
         ReplaceFirstOccurence(content, "%ROOM%", "Room " + to_string(roomID));
         ReplaceFirstOccurence(content, "%UPLOADSONG%", to_string(roomID));
         ReplaceFirstOccurence(content, "%USERS%", users);
 
-        string username = SessionManager::Instance().GetUser(cook);
         ReplaceFirstOccurence(content, "%SELF%", username);
         ReplaceFirstOccurence(content, "%SELFIMG%", "/" + ProfilePictureManager::Instance().GetUserProfilePic(username));
 
@@ -304,6 +300,8 @@ void AppServer::CreateInitialRoutes()
             room->SetCurrentSongUploader(username);
             room->Reset();
             SongManager::Instance().AddSong(file.filename);
+
+            cout << username << " just uploaded " << file.filename << " to room: " << roomID << '\n';
 
         }
     }
@@ -370,6 +368,8 @@ void AppServer::CreateInitialRoutes()
         auto room = ChatroomManager::Instance().GetChatroom(roomID);
 
         room->ToggleVisibility();
+
+        cout << "Room " << roomID << " visibility toggled.\n";
 
         resp.set_content("", "text/plain");
 

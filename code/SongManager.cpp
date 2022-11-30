@@ -29,7 +29,7 @@ SongManager::~SongManager()
 {
     for (auto songName : _songNames)
     {
-        system(("rm " + SONG_DIRECTORY + songName).c_str());
+        system(("rm " + SONG_DIRECTORY + "'" + songName + "'").c_str());
     }
 
     cout << "Songs Deleted.\n";

@@ -30,7 +30,7 @@ LoginDB::LoginDB(string tableName)
         printf("Can't open database\n");
     }
     else {
-        printf("Database opened succesfully\n");
+        // printf("Database opened succesfully\n");
     }
     
     //Creating table to store user information
@@ -39,7 +39,7 @@ LoginDB::LoginDB(string tableName)
     if (rc != SQLITE_OK) {
         cout << "Error creating table";
     } else {
-        cout << "Table created successfully\n";
+        // cout << "Table created successfully\n";
     }
     
 }
@@ -48,7 +48,7 @@ LoginDB::LoginDB(string tableName)
 LoginDB::~LoginDB()
 {
     sqlite3_close(db);
-    cout << "Database successfully closed.\n";
+    // cout << "Database successfully closed.\n";
 }
 
 //Method to verify login credentials for user

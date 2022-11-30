@@ -20,18 +20,15 @@
 #include "LoginDB.hpp"
 
 /// @brief Provides access to the Friends List Table for the app.
-/// Provides access to the Friends List Table for the app.
 /// @author Balaaj Arbab
 class FriendsListDB
 {
 public:
     /// @brief Initializes the object and acquires a database handle.
-    /// Initializes the object and acquires a database handle.
     /// @param tableName Table name of the Friends List table.
     FriendsListDB(const std::string& tableName);
 
     /// @brief Safely closes the Database handle and cleans up.
-    /// Safely closes the Database handle and cleans up.
     ~FriendsListDB();
 
     /// @brief Adds a friend relationship between 2 users.
@@ -42,7 +39,6 @@ public:
     int AddFriend(const std::string& username, const std::string& friendUsername);
 
     /// @brief Returns the username of all usernames that are friends with the input user.
-    /// Returns the username of all usernames that are friends with the input user.
     /// @param username The input user.
     /// @return A shared_ptr to a list of friend usernames.
     std::shared_ptr<std::vector<std::string>> GetAllFriends(const std::string& username);
